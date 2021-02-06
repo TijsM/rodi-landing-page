@@ -7,7 +7,7 @@ export const FeatureBlock = styled.article`
 
   @media only screen and (min-width: 768px) {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
     align-items: center;
   }
 `;
@@ -25,7 +25,7 @@ export const ImageContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     width: 40vw;
-    height: 650px;
+    height: 40vw;
     /* margin-right: ${(props) => (props.leftAlign ? "auto" : "0px")}; */
     order: ${(props) => (props.leftAlign ? 1 : 0)};
   }
@@ -41,7 +41,7 @@ export const TextContainer = styled.div`
 
   width: 75vw;
   margin-top: -100px;
-  padding: 14px;  
+  padding: 14px;
   padding-bottom: 48px;
 
   /* has to be on top of ImageContainer */

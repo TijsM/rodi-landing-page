@@ -6,6 +6,9 @@ export const PageLayout = styled.div`
   @media only screen and (min-width: 768px) {
     padding: 96px;
   }
+  @media only screen and (min-width: 1600px) {
+    padding: 148px;
+  }
 `;
 
 
