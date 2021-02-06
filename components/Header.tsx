@@ -1,15 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
+import Button from '../components/Button'
+
 import { PageLayout } from "../styles/PageLayout";
 import { H1 } from "../styles/Titles";
-import { Button } from "../styles/Button";
+import { StyledButton } from "../styles/Button";
 
 const Container = styled.section`
   width: 100vw;
   height: 100vh;
   background-image: url("../images/rodi-hero-landing.png");
   background-size: cover;
+  background-position: right 0;
+
+
+  @media only screen and (min-width: 768px) {
+    background-image: url("../images/rodi-hero-landing.png");
+  }
 `;
 
 const Content = styled.div`
@@ -49,11 +57,12 @@ export default function Header() {
             Rodi is a free app witch functions as a bike computer showing the
             way and statistics of your trip
           </InfoText>
-          <Button>Download the app</Button>
+          <Button text="Download the app"/>
         </Content>
       </PageLayout>
       <LearnMore>
-        <Button>Learn more</Button>
+        <Button text="Learn more" size="small"/>
+
       </LearnMore>
     </Container>
   );
