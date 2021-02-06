@@ -7,3 +7,9 @@ export const PageLayout = styled.div`
     padding: 48px;
   }
 `;
+
+
+export const ScreenWidth = styled.div`
+  max-width: 100vw;
+  overflow: hidden;
+`;
