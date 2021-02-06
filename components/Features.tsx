@@ -48,8 +48,8 @@ export default function Features() {
         const leftAllign = !!(i % 2);
 
         return (
-          <FeatureBlock>
-            <ImageContainer leftAlign={leftAllign}>
+          <FeatureBlock key={i}>
+            <ImageContainer leftAlign={leftAllign} >
               <Image
                 src={feature.image.src}
                 alt={feature.image.alt}

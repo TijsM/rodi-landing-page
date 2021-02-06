@@ -19,7 +19,7 @@ export const H3 = styled.h3`
   line-height: 125%;
 
   @media only screen and (min-width: 768px) {
-    font-size: 96px;
+    font-size: 48px;
   }
 `;
 
