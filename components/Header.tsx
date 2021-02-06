@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { PageLayout } from "../styles/PageLayout";
 import { H1 } from "../styles/Titles";
+import {Button} from "../styles/Button"
 
 const Container = styled.section`
   width: 100vw;
@@ -40,6 +41,7 @@ export default function Header() {
             Rodi is a free app witch functions as a bike computer showing the
             way and statistics of your trip
           </InfoText>
+          <Button>Get the app!</Button>
         </Content>
       </PageLayout>
     </Container>
