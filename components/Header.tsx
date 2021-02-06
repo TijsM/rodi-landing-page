@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { PageLayout } from "../styles/PageLayout";
 import { H1 } from "../styles/Titles";
-import {Button} from "../styles/Button"
+import { Button } from "../styles/Button";
 
 const Container = styled.section`
   width: 100vw;
@@ -31,6 +31,14 @@ const InfoText = styled.div`
   }
 `;
 
+const LearnMore = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+`;
+
 export default function Header() {
   return (
     <Container>
@@ -41,9 +49,12 @@ export default function Header() {
             Rodi is a free app witch functions as a bike computer showing the
             way and statistics of your trip
           </InfoText>
-          <Button>Get the app!</Button>
+          <Button>Download the app</Button>
         </Content>
       </PageLayout>
+      <LearnMore>
+        <Button>Learn more</Button>
+      </LearnMore>
     </Container>
   );
 }
