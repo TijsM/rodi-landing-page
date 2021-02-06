@@ -8,26 +8,62 @@ import {
   ImageContainer,
   TextContainer,
   FeatureDescription,
+  FeatureBlock,
 } from "../styles/pageStyles/Features";
 
 export default function Features() {
+  const features = [
+    {
+      title: "Course navigation",
+      description:
+        "Have a favorite route? Or don't now the area? Upload a route to Rodi.com/tracks and don't miss a turn on your next ride.",
+      image: {
+        src: "/images/feature-map.png",
+        alt: "map example",
+      },
+    },
+    {
+      title: "Track your performance",
+      description:
+        "Rodi tracks your ride on the go. We use the gps sensor of your phone to display these valuable insights of your trip.",
+      image: {
+        src: "/images/feature-stats.png",
+        alt: "map example",
+      },
+    },
+    {
+      title: '"Strava or didn’t happen"',
+      description:
+        "From the moment you finnish the ride on Rodu, we will upload your route with your friends on Strava.",
+      image: {
+        src: "/images/feature-strava.png",
+        alt: "map example",
+      },
+    },
+  ];
+
   return (
     <PageLayout>
-      <ImageContainer>
-        <Image
-          src="/images/navigation-map.png"
-          alt="map example"
-          layout="fill"
-          objectFit="cover"
-        />
-      </ImageContainer>
-      <TextContainer>
-        <H3>Course navigation</H3>
-        <FeatureDescription>
-          Have a favorite route? Or don't now the area? Upload a route to
-          Rodi.com/tracks and don't miss a turn on your next ride.
-        </FeatureDescription>
-      </TextContainer>
+      {features.map((feature, i) => {
+        const leftAllign = !!(i % 2);
+
+        return (
+          <FeatureBlock>
+            <ImageContainer leftAlign={leftAllign}>
+              <Image
+                src={feature.image.src}
+                alt={feature.image.alt}
+                layout="fill"
+                objectFit="cover"
+              />
+            </ImageContainer>
+            <TextContainer leftAlign={leftAllign}>
+              <H3>{feature.title}</H3>
+              <FeatureDescription>{feature.description}</FeatureDescription>
+            </TextContainer>
+          </FeatureBlock>
+        );
+      })}
     </PageLayout>
   );
 }

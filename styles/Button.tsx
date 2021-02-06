@@ -7,7 +7,7 @@ export const StyledButton = styled.button`
   background-color: white;
   border: none;
 
-  color: ${props => props.theme.primary};
+  color: ${props => props.theme.dark};
   font-weight: 700;
   font-size: ${props => props.sizes.mobile.fontSize};
 
