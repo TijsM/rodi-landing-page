@@ -28,6 +28,7 @@ export const Stat = styled.div``;
 
 export const StatAmount = styled.span`
   font-size: 28px;
+  font-variant-numeric: tabular-nums;
   @media only screen and (min-width: 450px) {
     font-size: 42px;
   }
