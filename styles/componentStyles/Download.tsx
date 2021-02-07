@@ -18,7 +18,7 @@ export const ListItem = styled.li`
   font-style: italic;
   font-size: 18;
   color: ${({ theme }) => theme.dark};
- `;
+`;
 
 export const ListItemText = styled.span``;
 
@@ -28,4 +28,12 @@ export const ListIcon = styled.div`
   border-radius: 6px;
   margin-right: 12px;
   background-color: ${({ theme }) => theme.dark};
+`;
+
+export const DownloadButtons = styled.div`
+  margin-top: 12px;
+  display: flex;
+  flex-direction: "row";
+  flex-wrap: wrap;
+  gap: 12px;
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Apple, Play } from "../components/storeButtons/Index";
 import { PageLayout } from "../styles/Layouts";
 import { H2 } from "../styles/Titles";
 import {
@@ -8,13 +9,14 @@ import {
   ListItem,
   ListItemText,
   ListIcon,
+  DownloadButtons,
 } from "../styles/componentStyles/Download";
 
 export default function Download() {
   const listItems = ["No adds", "No subscriptions", "No data sharing"];
 
   return (
-    <PageLayout >
+    <PageLayout>
       <H2>Download Rodi now for free.</H2>
       <Description>
         When we say for free, we actually mean for free.
@@ -27,6 +29,10 @@ export default function Download() {
           </ListItem>
         ))}
       </List>
+      <DownloadButtons>
+        <Apple width={140} height={50} />
+        <Play width={140} height={50} />
+      </DownloadButtons>
     </PageLayout>
   );
 }
