@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import { getFormattedTime, getEllapsedTime } from "../helpers/Clock";
 
@@ -17,6 +17,10 @@ type Props = {
 
 export default function Statistics({ startTime }: Props) {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [containerLocation, setContainerLocation] = useState(0);
+  const containerRef = useRef();
+  const [distance, setDistance] = useState(20);
 
   useEffect(() => {
     setInterval(() => {
@@ -24,11 +28,38 @@ export default function Statistics({ startTime }: Props) {
     }, 999);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {}, []);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+    const distances = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
+
+    const { top } = containerRef?.current?.getBoundingClientRect();
+    const screenHeight = typeof window === "undefined" ? 0 : window.innerHeight;
+    const elementPos = screenHeight - top;
+    const stepSize = screenHeight / 10;
+    const distanceIndex = elementPos / stepSize;
+    if (distanceIndex > 0 && distanceIndex < distances.length - 1) {
+      setDistance(distances[distanceIndex.toFixed(0)]);
+    }
+  };
+
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Stat>
         <Row>
-          <StatAmount>{45.5}</StatAmount>
+          <StatAmount>{distance}</StatAmount>
           <StatUnit>{"km"}</StatUnit>
         </Row>
         <StatName>{"Distance"}</StatName>
