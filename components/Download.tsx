@@ -41,8 +41,8 @@ export default function Download() {
           </List>
           <DownloadButtons>
             {/* <Apple width={screensize < 768? 140: 289} height={50} /> */}
-            <Apple width={140} height={50} />
-            <Play width={140} height={50} />
+            <Apple width={165} height={60} />
+            <Play width={165} height={60} />
           </DownloadButtons>
         </Content>
         <MockupContainer>
