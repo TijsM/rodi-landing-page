@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import {getFormattedTime} from '../helpers/Clock'
+import { getFormattedTime, getEllapsedTime } from "../helpers/Clock";
 
 import {
   Container,
@@ -11,13 +11,17 @@ import {
   Row,
 } from "../styles/componentStyles/Statistics";
 
-export default function Statistics() {
+type Props = {
+  startTime: Date;
+};
+
+export default function Statistics({ startTime }: Props) {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
   useEffect(() => {
     setInterval(() => {
       setCurrentTime(new Date());
-    });
+    }, 999);
   }, []);
 
   return (
@@ -45,13 +49,13 @@ export default function Statistics() {
       </Stat>
       <Stat>
         <Row>
-          <StatAmount>{"2:42:18"}</StatAmount>
+          <StatAmount>{getEllapsedTime(startTime, currentTime)}</StatAmount>
         </Row>
         <StatName>{"Duration"}</StatName>
       </Stat>
       <Stat>
         <Row>
-          <StatAmount>{58.1}</StatAmount>
+          <StatAmount>{28.1}</StatAmount>
           <StatUnit>{"km/h"}</StatUnit>
         </Row>
         <StatName>{"Max. speed"}</StatName>

@@ -13,7 +13,11 @@ import {
   FeatureBlock,
 } from "../styles/componentStyles/Features";
 
-export default function Features() {
+type Props = {
+  startTime: Date
+}
+
+export default function Features({startTime}: Props) {
   const features = [
     {
       title: "Course navigation",
@@ -49,7 +53,7 @@ export default function Features() {
 
   const renderIllustration = (illustration) => {
     if (illustration.type === "stats") {
-      return <Statistics/>;
+      return <Statistics startTime={startTime}/>;
     } else {
       return (
         <Image
