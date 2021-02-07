@@ -9,7 +9,7 @@ import {
   TextContainer,
   FeatureDescription,
   FeatureBlock,
-} from "../styles/pageStyles/Features";
+} from "../styles/componentStyles/Features";
 
 export default function Features() {
   const features = [

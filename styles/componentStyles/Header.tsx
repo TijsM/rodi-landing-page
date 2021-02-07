@@ -6,15 +6,11 @@ export const Container = styled.section`
   background-image: url("../images/rodi-hero-landing.png");
   background-size: cover;
   background-position: right 0;
-
-  @media only screen and (min-width: 768px) {
-    background-image: url("../images/rodi-hero-landing.png");
-  }
 `;
 
 export const Content = styled.div`
   width: 100%;
-  
+
   @media only screen and (min-width: 768px) {
     width: 70%;
   }

@@ -9,7 +9,7 @@ import {
   Container,
   InfoText,
   LearnMore,
-} from "../styles/pageStyles/Header";
+} from "../styles/componentStyles/Header";
 
 export default function Header() {
   return (
