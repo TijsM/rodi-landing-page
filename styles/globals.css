@@ -44,5 +44,6 @@ table {
 }
 
 html{
-    font-family: Roboto;
+	font-family: Roboto;
+	scroll-behavior: smooth;
 }

@@ -4,10 +4,11 @@ import { StyledButton } from "../styles/Button";
 
 type Props = {
   text: string;
+  link: string;
   size?: "normal" | "small";
 };
 
-export default function Button({ text, size = "normal" }: Props) {
+export default function Button({ text, link, size = "normal" }: Props) {
   const getSizes = () => {
     return size === "normal"
       ? {
@@ -35,5 +36,9 @@ export default function Button({ text, size = "normal" }: Props) {
           },
         };
   };
-  return <StyledButton sizes={getSizes()}>{text}</StyledButton>;
+  return (
+    <StyledButton href={link} sizes={getSizes()}>
+      {text}
+    </StyledButton>
+  );
 }

@@ -22,6 +22,7 @@ export const InfoText = styled.div`
   font-size: 18px;
   font-weight: 400;
   padding: 24px 0 18px 0;
+  margin-bottom: 24px;
 
   @media only screen and (min-width: 768px) {
     font-size: 24px;

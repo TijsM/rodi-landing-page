@@ -43,7 +43,7 @@ export default function Features() {
   ];
 
   return (
-    <PageLayout>
+    <PageLayout id="features">
       {features.map((feature, i) => {
         const leftAllign = !!(i % 2);
 

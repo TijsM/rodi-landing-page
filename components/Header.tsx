@@ -21,11 +21,11 @@ export default function Header() {
             Rodi is a free app witch functions as a bike computer showing the
             way and statistics of your trip
           </InfoText>
-          <Button text="Download the app" />
+          <Button link="#download" text="Download the app" />
         </Content>
       </PageLayout>
       <LearnMore>
-        <Button text="Learn more" size="small" />
+        <Button link="#features" text="Learn more" size="small" />
       </LearnMore>
     </Container>
   );

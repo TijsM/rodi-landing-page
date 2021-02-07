@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.a`
   padding:${props => props.sizes.mobile.padding};
   border-radius: ${props => props.sizes.mobile.borderRadius};
 
@@ -10,6 +10,7 @@ export const StyledButton = styled.button`
   color: ${props => props.theme.dark};
   font-weight: 700;
   font-size: ${props => props.sizes.mobile.fontSize};
+  text-decoration: none;
 
   cursor: pointer;
 
