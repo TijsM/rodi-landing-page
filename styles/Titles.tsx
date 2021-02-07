@@ -16,6 +16,10 @@ export const H2 = styled.h2 `
   font-weight: 700;
   color : ${props => props.theme.dark};
   line-height: 125%;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 72px;
+  }
 `
 
 
