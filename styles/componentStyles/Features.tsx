@@ -19,8 +19,8 @@ export const ImageContainer = styled.div`
   margin-left: ${(props) => (props.leftAlign ? "auto" : "0px")};
   margin-right: ${(props) => (props.leftAlign ? "0px" : "auto")};
 
-  position: relative;
   /* has to be under TextContainer */
+  position: relative;
   z-index: 1;
 
   @media only screen and (min-width: 768px) {
