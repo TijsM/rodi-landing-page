@@ -47,7 +47,7 @@ export default function Download() {
         </Content>
         <MockupContainer>
           <Mockup
-            src={"/images/iphone-mockup.png"}
+            src={"/images/iPhone-mockup.png"}
             alt="Rodi on iPhone"
             layout="fill"
             objectFit="contain"
