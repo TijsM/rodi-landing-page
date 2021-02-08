@@ -30,7 +30,7 @@ export default function Statistics({ startTime }: Props) {
   const [distance, setDistance] = useState(20);
   const [elevation, setElevation] = useState(245);
   const [average, setAverage] = useState(28.1);
-  const [maxSpeed, setMaxSpeed] = useState(28.1)
+  const [maxSpeed, setMaxSpeed] = useState(28.1);
 
   const containerRef = useRef();
   // prettier-ignore
@@ -59,10 +59,10 @@ export default function Statistics({ startTime }: Props) {
   }, []);
 
   useEffect(() => {
-    updateDistances();
-    updateElevation();
-    updateAverageSpeed();
-    updateMaxSpeed();
+    updateStats(distances, setDistance);
+    updateStats(elevations, setElevation);
+    updateStats(speeds, setAverage);
+    updateStats(maxSpeeds, setMaxSpeed);
   }, [scroll]);
 
   const handleScroll = () => {
@@ -80,27 +80,9 @@ export default function Statistics({ startTime }: Props) {
     setScroll(index);
   };
 
-  const updateDistances = () => {
-    if (scroll > 0 && scroll < distances.length - 1) {
-      setDistance(distances[scroll.toFixed(0)]);
-    }
-  };
-
-  const updateElevation = () => {
-    if (scroll > 0 && scroll < elevations.length - 1) {
-      setElevation(elevations[scroll.toFixed(0)]);
-    }
-  };
-
-  const updateAverageSpeed = () => {
-    if (scroll > 0 && scroll < speeds.length - 1) {
-      setAverage(speeds[scroll.toFixed(0)]);
-    }
-  };
-
-  const updateMaxSpeed = () => {
-    if (scroll > 0 && scroll < maxSpeeds.length - 1) {
-      setMaxSpeed(maxSpeeds[scroll.toFixed(0)]);
+  const updateStats = (input: ScrollData, setState: (updated: any) => void) => {
+    if (scroll > 0 && scroll < input.length - 1) {
+      setState(input[scroll.toFixed(0)]);
     }
   };
 
