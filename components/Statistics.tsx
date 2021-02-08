@@ -52,7 +52,8 @@ export default function Statistics({ startTime }: Props) {
 
   const updateDistances = () => {
     const distances = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
-    const { top } = containerRef?.current?.getBoundingClientRect();
+    // @ts-ignore
+    const { top } = containerRef?.current?.getBoundingClientRect() | 0;
     const screenHeight = typeof window === "undefined" ? 0 : window.innerHeight;
     const elementPos = screenHeight - top;
     const stepSize = screenHeight / 10;
