@@ -40,7 +40,7 @@ export default function Statistics({ startTime }: Props) {
   // prettier-ignore
   const speeds: ScrollData = [28.1, 28.1, 28.3, 28.2, 28.3, 28.2, 28.5, 28.7, 28.9, 29.0];
   // prettier-ignore
-  const maxSpeeds: ScrollData = [28.1, 35.8, 35.8, 35.8, 35.8, 42.7, 42.7, 48.1, 48.1, 48.1];
+  const maxSpeeds: ScrollData = [28.1, 35.8, 35.8, 35.8, 35.8, 42.7, 48.1, 48.1, 49.8, 49.8];
 
   useEffect(() => {
     setInterval(() => {
