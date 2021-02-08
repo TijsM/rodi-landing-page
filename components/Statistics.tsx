@@ -30,6 +30,7 @@ export default function Statistics({ startTime }: Props) {
   const [distance, setDistance] = useState(20);
   const [elevation, setElevation] = useState(245);
   const [average, setAverage] = useState(28.1);
+  const [maxSpeed, setMaxSpeed] = useState(28.1)
 
   const containerRef = useRef();
   // prettier-ignore
@@ -38,6 +39,8 @@ export default function Statistics({ startTime }: Props) {
   const elevations: ScrollData = [245, 245, 245, 255, 270, 271, 271, 271, 275, 275];
   // prettier-ignore
   const speeds: ScrollData = [28.1, 28.1, 28.3, 28.2, 28.3, 28.2, 28.5, 28.7, 28.9, 29.0];
+  // prettier-ignore
+  const maxSpeeds: ScrollData = [28.1, 35.8, 35.8, 35.8, 35.8, 42.7, 42.7, 48.1, 48.1, 48.1];
 
   useEffect(() => {
     setInterval(() => {
@@ -59,6 +62,7 @@ export default function Statistics({ startTime }: Props) {
     updateDistances();
     updateElevation();
     updateAverageSpeed();
+    updateMaxSpeed();
   }, [scroll]);
 
   const handleScroll = () => {
@@ -94,6 +98,12 @@ export default function Statistics({ startTime }: Props) {
     }
   };
 
+  const updateMaxSpeed = () => {
+    if (scroll > 0 && scroll < maxSpeeds.length - 1) {
+      setMaxSpeed(maxSpeeds[scroll.toFixed(0)]);
+    }
+  };
+
   return (
     <Container ref={containerRef}>
       <Stat>
@@ -125,7 +135,7 @@ export default function Statistics({ startTime }: Props) {
       </Stat>
       <Stat>
         <Row>
-          <StatAmount>{28.1}</StatAmount>
+          <StatAmount>{maxSpeed}</StatAmount>
           <StatUnit>{"km/h"}</StatUnit>
         </Row>
         <StatName>{"Max. speed"}</StatName>
