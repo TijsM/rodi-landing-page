@@ -1,4 +1,3 @@
-
 const timeFormatter = (time: number) => {
   return time < 10 ? "0" + time : time;
 };
@@ -12,18 +11,18 @@ export const getFormattedTime = (time: Date) => {
 };
 
 export const getEllapsedTime = (startTime: Date, currentTime: Date) => {
-  if(!startTime){
-    return "00:00:00"
+  if (!startTime) {
+    return "00:00:00";
   }
 
   const hours = timeFormatter(
     currentTime.getHours() - startTime.getHours()
   );
   const minutes = timeFormatter(
-   currentTime.getMinutes() - startTime.getMinutes()
+    new Date(currentTime.getTime() - startTime.getTime()).getMinutes()
   );
   const seconds = timeFormatter(
-   currentTime.getSeconds() - startTime.getSeconds()
+    new Date(currentTime.getTime() - startTime.getTime()).getSeconds()
   );
 
   return `${hours}:${minutes}:${seconds}`;
