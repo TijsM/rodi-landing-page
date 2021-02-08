@@ -15,12 +15,29 @@ type Props = {
   startTime: Date;
 };
 
+type FixedSizeArray<N extends number, T> = N extends 0
+  ? never[]
+  : {
+      0: T;
+      length: N;
+    } & ReadonlyArray<T>;
+
+type ScrollData = FixedSizeArray<10, any>;
+
 export default function Statistics({ startTime }: Props) {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [containerLocation, setContainerLocation] = useState(0);
-  const containerRef = useRef();
+  const [scroll, setScroll] = useState<number>();
   const [distance, setDistance] = useState(20);
+  const [elevation, setElevation] = useState(245);
+  const [average, setAverage] = useState(28.1);
+
+  const containerRef = useRef();
+  // prettier-ignore
+  const distances: ScrollData = [20.1, 21.3, 22.5, 23.7, 24.9, 26.1, 27.3, 28.5, 29.7, 30.0];
+  // prettier-ignore
+  const elevations: ScrollData = [245, 245, 245, 255, 270, 271, 271, 271, 275, 275];
+  // prettier-ignore
+  const speeds: ScrollData = [28.1, 28.1, 28.3, 28.2, 28.3, 28.2, 28.5, 28.7, 28.9, 29.0];
 
   useEffect(() => {
     setInterval(() => {
@@ -38,28 +55,42 @@ export default function Statistics({ startTime }: Props) {
     };
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    updateDistances();
+    updateElevation();
+    updateAverageSpeed();
+  }, [scroll]);
 
   const handleScroll = () => {
     handlePosition();
-    updateDistances();
   };
 
   const handlePosition = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
+    // @ts-ignore
+    const { top, height } = containerRef?.current?.getBoundingClientRect();
+    const screenHeight = typeof window === "undefined" ? 0 : window.innerHeight;
+    const elementPos = screenHeight - top;
+    const stepSize = (screenHeight + height) / 10;
+    const index = elementPos / stepSize;
+
+    setScroll(index);
   };
 
   const updateDistances = () => {
-    const distances = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
-    // @ts-ignore
-    const { top } = containerRef?.current?.getBoundingClientRect();
-    const screenHeight = typeof window === "undefined" ? 0 : window.innerHeight;
-    const elementPos = screenHeight - top;
-    const stepSize = screenHeight / 10;
-    const distanceIndex = elementPos / stepSize;
-    if (distanceIndex > 0 && distanceIndex < distances.length - 1) {
-      setDistance(distances[distanceIndex.toFixed(0)]);
+    if (scroll > 0 && scroll < distances.length - 1) {
+      setDistance(distances[scroll.toFixed(0)]);
+    }
+  };
+
+  const updateElevation = () => {
+    if (scroll > 0 && scroll < elevations.length - 1) {
+      setElevation(elevations[scroll.toFixed(0)]);
+    }
+  };
+
+  const updateAverageSpeed = () => {
+    if (scroll > 0 && scroll < speeds.length - 1) {
+      setAverage(speeds[scroll.toFixed(0)]);
     }
   };
 
@@ -74,14 +105,14 @@ export default function Statistics({ startTime }: Props) {
       </Stat>
       <Stat>
         <Row>
-          <StatAmount>{28.8}</StatAmount>
+          <StatAmount>{average}</StatAmount>
           <StatUnit>{"km/h"}</StatUnit>
         </Row>
         <StatName>{"Avergage speed"}</StatName>
       </Stat>
       <Stat>
         <Row>
-          <StatAmount>{230}</StatAmount>
+          <StatAmount>{elevation}</StatAmount>
           <StatUnit>{"m"}</StatUnit>
         </Row>
         <StatName>{"Elevation"}</StatName>
