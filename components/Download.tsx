@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Apple, Play } from "../components/storeButtons/Index";
+import DownloadPopup from "../components/DownloadPopup";
 
 import { PageLayout } from "../styles/Layouts";
 import { H2 } from "../styles/Titles";
@@ -14,42 +15,54 @@ import {
   ListIcon,
   DownloadButtons,
   MockupContainer,
-  Mockup
+  Mockup,
 } from "../styles/componentStyles/Download";
 
 export default function Download() {
+  const [showPopup, setShowPopup] = useState(false);
   const listItems = ["No adds", "No subscriptions", "No data sharing"];
 
   return (
-    <PageLayout id="download">
-      <Container>
-        <Content>
-          <H2>Download Rodi now for free.</H2>
-          <Description>
-            When we say for free, we actually mean for free.
-          </Description>
-          <List>
-            {listItems.map((li) => (
-              <ListItem key={li}>
-                <ListIcon />
-                <ListItemText>{li}</ListItemText>
-              </ListItem>
-            ))}
-          </List>
-          <DownloadButtons>
-            <Apple width={165} height={60} />
-            <Play width={165} height={60} />
-          </DownloadButtons>
-        </Content>
-        <MockupContainer>
-          <Mockup
-            src={"/images/iPhone-mockup.png"}
-            alt="Rodi on iPhone"
-            layout="fill"
-            objectFit="contain"
-          />
-        </MockupContainer>
-      </Container>
-    </PageLayout>
+    <>
+      <PageLayout id="download">
+        <Container>
+          <Content>
+            <H2>Download Rodi now for free.</H2>
+            <Description>
+              When we say for free, we actually mean for free.
+            </Description>
+            <List>
+              {listItems.map((li) => (
+                <ListItem key={li}>
+                  <ListIcon />
+                  <ListItemText>{li}</ListItemText>
+                </ListItem>
+              ))}
+            </List>
+            <DownloadButtons>
+              <Apple
+                width={165}
+                height={60}
+                onClick={() => setShowPopup(true)}
+              />
+              <Play
+                width={165}
+                height={60}
+                onClick={() => setShowPopup(true)}
+              />
+            </DownloadButtons>
+          </Content>
+          <MockupContainer>
+            <Mockup
+              src={"/images/iPhone-mockup.png"}
+              alt="Rodi on iPhone"
+              layout="fill"
+              objectFit="contain"
+            />
+          </MockupContainer>
+        </Container>
+      </PageLayout>
+      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+    </>
   );
 }

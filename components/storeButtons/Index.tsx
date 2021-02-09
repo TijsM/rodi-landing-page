@@ -6,4 +6,5 @@ export { Apple, Play };
 export type Props = {
   width: number;
   height: number;
+  onClick: () => void
 };

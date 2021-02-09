@@ -2,14 +2,17 @@ import React from "react";
 import { Props } from "./Index";
 import { theme } from "../../styles/theme";
 
-export default function PlayStore({ width, height }: Props) {
+import {Svg} from "../../styles/componentStyles/StoreButtons"
+
+export default function PlayStore({ width, height, onClick }: Props) {
   return (
-    <svg
+    <Svg
       width={width}
       height={height}
       viewBox="0 0 180 52"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick}
     >
       <path
         d="M173.095 52H6.6575C2.99754 52 0 49.0734 0 45.5V6.5C0 2.92663 2.99754 2.74817e-06 6.6575 2.74817e-06H173.095C176.755 2.74817e-06 179.753 2.92663 179.753 6.5V45.5C179.753 49.0734 176.755 52 173.095 52Z"
@@ -143,6 +146,6 @@ export default function PlayStore({ width, height }: Props) {
           <stop offset="1" stopColor="#00F076" />
         </linearGradient>
       </defs>
-    </svg>
+    </Svg>
   );
 }
