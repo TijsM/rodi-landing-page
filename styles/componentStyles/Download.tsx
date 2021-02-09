@@ -20,12 +20,12 @@ export const Content = styled.article`
 
 export const Description = styled.div`
   font-style: italic;
-  font-size: 18;
+  font-size: 18px;
   color: ${({ theme }) => theme.dark};
   margin-top: 24px;
 
   @media only screen and (min-width: 768px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 `;
 
@@ -36,12 +36,12 @@ export const ListItem = styled.li`
   flex-direction: row;
   align-items: center;
   margin: 12px 3px;
+  font-size: 18px;
 
   font-style: italic;
-  font-size: 18;
   color: ${({ theme }) => theme.dark};
   @media only screen and (min-width: 768px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 `;
 
