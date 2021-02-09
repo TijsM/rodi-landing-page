@@ -61,6 +61,9 @@ export const DownloadButtons = styled.div`
   flex-direction: "row";
   flex-wrap: wrap;
   gap: 12px;
+  @media only screen and (min-width: 768px) {
+    margin-top: 36px;
+  }
 `;
 
 export const MockupContainer = styled.div`

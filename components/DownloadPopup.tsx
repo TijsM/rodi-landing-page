@@ -20,9 +20,16 @@ type Props = {
 export default function DownloadPopup({ onClose }: Props) {
   const [email, setEmail] = useState("");
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     console.log("store in DB", email);
     onClose();
+
+    fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+    });
   };
 
   return (
