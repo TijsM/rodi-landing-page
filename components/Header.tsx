@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { initGA, logEvent } from "../utils/analytics";
 import Button from "../components/Button";
 
 import { PageLayout } from "../styles/Layouts";
@@ -21,11 +21,32 @@ export default function Header() {
             Rodi is a free app witch functions as a bike computer showing the
             way and statistics of your trip
           </InfoText>
-          <Button link="#download" text="Download the app" />
+          <Button
+            link="download"
+            trackingData={{
+              category: "header",
+              event: {
+                type: "click",
+                name: "Download",
+              },
+            }}
+            text="Download the app"
+          />
         </Content>
       </PageLayout>
       <LearnMore>
-        <Button link="#features" text="Learn more" size="small" />
+        <Button
+          link="features"
+          text="Learn more"
+          size="small"
+          trackingData={{
+            category: "header",
+            event: {
+              type: "click",
+              name: "Learn more",
+            },
+          }}
+        />
       </LearnMore>
     </Container>
   );
