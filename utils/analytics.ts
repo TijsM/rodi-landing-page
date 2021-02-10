@@ -1,9 +1,9 @@
 import ReactGA from "react-ga";
 
 export type AnalyticsData = {
-  category: "header" | "download section";
+  category: "header" | "download section" | "Sign up popup";
   event: {
-    type: "click";
+    type: "click" | "submit" | "focus" ;
     name: string;
   };
 };

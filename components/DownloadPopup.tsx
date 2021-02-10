@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { logEvent } from "../utils/analytics";
+
 import {
   BackDrop,
   Popup,
@@ -21,7 +23,13 @@ export default function DownloadPopup({ onClose }: Props) {
   const [email, setEmail] = useState("");
 
   const onSubmit = async () => {
-    console.log("store in DB", email);
+    logEvent({
+      category: "Sign up popup",
+      event: {
+        type: "submit",
+        name: "sign up to email list",
+      },
+    });
     onClose();
 
     fetch("/api/email", {
@@ -30,6 +38,34 @@ export default function DownloadPopup({ onClose }: Props) {
         email,
       }),
     });
+  };
+
+  const logFocus = () => {
+    logEvent({
+      category: "Sign up popup",
+      event: {
+        type: "focus",
+        name: "focus email field",
+      },
+    });
+  };
+
+  const closeModal = () => {
+    onClose();
+
+    logEvent({
+      category: "Sign up popup",
+      event: {
+        type: "click",
+        name: "abort email registration",
+      },
+    });
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      onSubmit();
+    }
   };
 
   return (
@@ -48,6 +84,8 @@ export default function DownloadPopup({ onClose }: Props) {
           </Explenation>
           <FormContainer>
             <Input
+              onKeyPress={handleKeyPress}
+              onFocus={logFocus}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -55,7 +93,7 @@ export default function DownloadPopup({ onClose }: Props) {
             <Submit onClick={onSubmit}>Submit</Submit>
           </FormContainer>
         </PageLayout>
-        <Close onClick={onClose}>Naah, leave me alone...</Close>
+        <Close onClick={closeModal}>Naah, leave me alone...</Close>
       </Popup>
     </BackDrop>
   );
