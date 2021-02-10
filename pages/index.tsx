@@ -1,3 +1,5 @@
+import { initGA } from "../utils/analytics";
+
 import Header from "../components/Header";
 import Features from "../components/Features";
 import Screen from "../components/Screen";
@@ -8,6 +10,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [startTime, setStartTime] = useState<Date | undefined>();
+
+  useEffect(() => {
+    initGA();
+  }, []);
 
   useEffect(() => {
     setStartTime(new Date());

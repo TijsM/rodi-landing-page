@@ -12,10 +12,6 @@ import {
 } from "../styles/componentStyles/Header";
 
 export default function Header() {
-  useEffect(() => {
-    initGA()
-  }, [initGA])
-
   return (
     <Container>
       <PageLayout>
@@ -25,18 +21,32 @@ export default function Header() {
             Rodi is a free app witch functions as a bike computer showing the
             way and statistics of your trip
           </InfoText>
-          <Button link="#download" text="Download the app" />
-          <button
-            onClick={() => {
-              logEvent("test1", "test2");
+          <Button
+            link="download"
+            trackingData={{
+              category: "header",
+              event: {
+                type: "click",
+                name: "Download",
+              },
             }}
-          >
-            test ga
-          </button>
+            text="Download the app"
+          />
         </Content>
       </PageLayout>
       <LearnMore>
-        <Button link="#features" text="Learn more" size="small" />
+        <Button
+          link="features"
+          text="Learn more"
+          size="small"
+          trackingData={{
+            category: "header",
+            event: {
+              type: "click",
+              name: "Learn more",
+            },
+          }}
+        />
       </LearnMore>
     </Container>
   );

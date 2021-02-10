@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.a`
+export const StyledButton = styled.button`
   padding:${props => props.sizes.mobile.padding};
   border-radius: ${props => props.sizes.mobile.borderRadius};
 

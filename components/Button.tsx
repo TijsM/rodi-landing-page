@@ -1,14 +1,28 @@
 import React from "react";
 
+import { logEvent } from "../utils/analytics";
+
 import { StyledButton } from "../styles/Button";
 
 type Props = {
   text: string;
   link: string;
   size?: "normal" | "small";
+  trackingData: {
+    category: "header" | "download section";
+    event: {
+      type: "click";
+      name: "Download" | "Learn more";
+    };
+  };
 };
 
-export default function Button({ text, link, size = "normal" }: Props) {
+export default function Button({
+  text,
+  link,
+  size = "normal",
+  trackingData,
+}: Props) {
   const getSizes = () => {
     return size === "normal"
       ? {
@@ -37,7 +51,19 @@ export default function Button({ text, link, size = "normal" }: Props) {
         };
   };
   return (
-    <StyledButton href={link} sizes={getSizes()}>
+    <StyledButton
+      onClick={() => {
+        logEvent(
+          trackingData.category,
+          trackingData.event.type + " - " + trackingData.event.name
+        );
+
+        document.getElementById(link).scrollIntoView({
+          behavior: "smooth",
+        });
+      }}
+      sizes={getSizes()}
+    >
       {text}
     </StyledButton>
   );
