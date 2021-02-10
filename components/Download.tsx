@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { logEvent } from "../utils/analytics";
+
 import { Apple, Play } from "../components/storeButtons/Index";
 import DownloadPopup from "../components/DownloadPopup";
 
@@ -22,6 +24,18 @@ export default function Download() {
   const [showPopup, setShowPopup] = useState(false);
   const listItems = ["No adds", "No subscriptions", "No data sharing"];
 
+  const onClick = (platform: "ios" | "android") => {
+    setShowPopup(true);
+
+    logEvent({
+      category: "download section",
+      event: {
+        type: "click",
+        name: `Download ${platform}`,
+      },
+    });
+  };
+
   return (
     <>
       <PageLayout id="download">
@@ -40,15 +54,11 @@ export default function Download() {
               ))}
             </List>
             <DownloadButtons>
-              <Apple
-                width={165}
-                height={60}
-                onClick={() => setShowPopup(true)}
-              />
+              <Apple width={165} height={60} onClick={() => onClick("ios")} />
               <Play
                 width={165}
                 height={60}
-                onClick={() => setShowPopup(true)}
+                onClick={() => onClick("android")}
               />
             </DownloadButtons>
           </Content>

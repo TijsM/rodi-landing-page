@@ -1,6 +1,6 @@
 import React from "react";
 
-import { logEvent } from "../utils/analytics";
+import { logEvent, AnalyticsData } from "../utils/analytics";
 
 import { StyledButton } from "../styles/Button";
 
@@ -8,13 +8,7 @@ type Props = {
   text: string;
   link: string;
   size?: "normal" | "small";
-  trackingData: {
-    category: "header" | "download section";
-    event: {
-      type: "click";
-      name: "Download" | "Learn more";
-    };
-  };
+  trackingData: AnalyticsData;
 };
 
 export default function Button({
@@ -53,10 +47,7 @@ export default function Button({
   return (
     <StyledButton
       onClick={() => {
-        logEvent(
-          trackingData.category,
-          trackingData.event.type + " - " + trackingData.event.name
-        );
+        logEvent(trackingData);
 
         document.getElementById(link).scrollIntoView({
           behavior: "smooth",
