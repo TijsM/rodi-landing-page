@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { initGA, logEvent } from "../utils/analytics";
 import Button from "../components/Button";
 
 import { PageLayout } from "../styles/Layouts";
@@ -12,6 +12,10 @@ import {
 } from "../styles/componentStyles/Header";
 
 export default function Header() {
+  useEffect(() => {
+    initGA()
+  }, [initGA])
+
   return (
     <Container>
       <PageLayout>
@@ -22,6 +26,13 @@ export default function Header() {
             way and statistics of your trip
           </InfoText>
           <Button link="#download" text="Download the app" />
+          <button
+            onClick={() => {
+              logEvent("test1", "test2");
+            }}
+          >
+            test ga
+          </button>
         </Content>
       </PageLayout>
       <LearnMore>
