@@ -38,7 +38,7 @@ export default function Download() {
 
   return (
     <>
-      <PageLayout id="download">
+      <PageLayout id="download" isSection>
         <Container>
           <Content>
             <H2>Download Rodi now for free.</H2>

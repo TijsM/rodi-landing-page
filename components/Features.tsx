@@ -67,7 +67,7 @@ export default function Features({startTime}: Props) {
   };
 
   return (
-    <PageLayout id="features">
+    <PageLayout id="features" isSection>
       {features.map((feature, i) => {
         const leftAllign = !!(i % 2);
         return (

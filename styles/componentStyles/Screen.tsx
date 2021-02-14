@@ -5,6 +5,7 @@ export const Container = styled.section`
   width: 100%;
   height: 200px;
   position: relative;
+  margin-top: 76px;
 
   @media only screen and (min-width: 768px) {
     height: 400px;

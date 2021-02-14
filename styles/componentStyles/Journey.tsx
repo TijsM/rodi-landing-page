@@ -3,12 +3,14 @@ import styled from "styled-components";
 export const Page = styled.section`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.white};
-  /* height: 100vh;
-  max-height: 100vh; */
   display: flex;
+  margin-top: 76px;
   flex-direction: column;
+  padding-top: 48px;
 
   @media only screen and (min-width: 900px) {
+  padding-top: 0px;
+
     height: 75vh;
   }
 `;
@@ -37,7 +39,7 @@ export const SelectGroup = styled.div`
 
 export const Select = styled.div`
   /* box-shadow: 0px 4px 24px 8px rgba(255, 255, 255, 0.05); */
-  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.3);
 
   font-weight: ${({ selected }) => selected && 700};
   text-decoration: ${({ selected }) => selected && "underline"};

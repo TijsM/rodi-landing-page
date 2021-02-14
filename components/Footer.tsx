@@ -25,7 +25,7 @@ export default function Footer() {
   };
   return (
     <>
-      <PageLayout>
+      <PageLayout isSection>
         <Container>
           <H3>get Rodi now!</H3>
           <DownloadButtons>
