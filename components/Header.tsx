@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { initGA, logEvent } from "../utils/analytics";
+import React from "react";
 import Button from "../components/Button";
 
 import { PageLayout } from "../styles/Layouts";

@@ -6,6 +6,8 @@ export const H1 = styled.h1`
   color: white;
   line-height: 125%;
 
+  mix-blend-mode: difference;
+
   @media only screen and (min-width: 768px) {
     font-size: 96px;
   }
