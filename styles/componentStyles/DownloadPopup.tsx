@@ -100,7 +100,7 @@ export const Close = styled.button`
   font-size: 14px;
   color: ${({ theme }) => theme.dark};
   opacity: 0.75;
-  font-weight: 200;
+  font-weight: 400;
   background-color: transparent;
   border: none;
   position: absolute;
