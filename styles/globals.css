@@ -46,4 +46,5 @@ table {
 html{
 	font-family: Roboto;
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }

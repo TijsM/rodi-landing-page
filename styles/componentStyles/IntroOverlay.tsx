@@ -4,7 +4,6 @@ export const IntroOverlayContainer = styled.div`
   height: 100vh;
   position: absolute;
   width: 99vw;
-
 `;
 
 export const OverlayColumn = styled.div`
