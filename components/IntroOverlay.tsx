@@ -7,12 +7,6 @@ import {
   OverlayColumn,
 } from "../styles/componentStyles/IntroOverlay";
 
-const dropAnimation = {
-  duration: 1,
-  delay: 0.5,
-  height: 0,
-  ease: "power4.out",
-};
 
 export default function IntroOverlay() {
   const col1 = useRef(null);
