@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Page = styled.section`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.white};
-  height: 100vh;
-  max-height: 100vh;
+  /* height: 100vh;
+  max-height: 100vh; */
   display: flex;
   flex-direction: column;
 
