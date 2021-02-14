@@ -22,20 +22,20 @@ export default function IntroOverlay() {
   useEffect(() => {
     const tl = gsap.timeline();
     tl.to(col1.current, {
-      duration: 1,
-      delay: 2,
+      duration: 1.1,
+      delay: 1.5,
       height: 0,
-      ease: "power4.out",
+      ease: "power4.easeIn",
     })
       .to(col2.current, {
-        duration: 1,
-        delay: -0.6,
+        duration: 1.1,
+        delay: -0.75,
         height: 0,
         ease: "power4.out",
       })
       .to(col3.current, {
-        duration: 1,
-        delay: -0.6,
+        duration: 1.1,
+        delay: -0.75,
         height: 0,
         ease: "power4.out",
       })

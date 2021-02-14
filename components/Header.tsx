@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import gsap from 'gsap'
+import gsap from "gsap";
 
 import Button from "../components/Button";
 
@@ -10,21 +10,21 @@ import {
   Content,
   Container,
   InfoText,
-  LearnMore,  
+  LearnMore,
 } from "../styles/componentStyles/Header";
 
 export default function Header() {
-  const title = useRef(null)
+  const title = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline()
+    const tl = gsap.timeline();
     tl.from(title.current, {
       delay: 0.5,
       duration: 1,
       opacity: 0,
-      y: 70
+      y: 70,
     })
-  }, [])
+  }, []);
 
   return (
     <Container>
@@ -33,7 +33,7 @@ export default function Header() {
           <H1 ref={title}>Ready to go on your next adventure?</H1>
           <InfoText>
             Rodi is a free app witch functions as a bike computer showing the
-            way and statistics of your trip
+            route and statistics of your trip
           </InfoText>
           <Button
             link="download"
