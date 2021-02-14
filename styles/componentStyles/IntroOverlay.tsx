@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const IntroOverlayContainer = styled.div`
   height: 100vh;
   position: absolute;
-  width: 99vw;
+  width: 100vw;
 `;
 
 export const OverlayColumn = styled.div`
@@ -17,10 +17,8 @@ export const OverlayColumn = styled.div`
 
   &:nth-of-type(2) {
     left: 33.33%;
-    /* background-color: red; */
   }
   &:nth-of-type(3) {
     left: 66.66%;
-    /* background-color: pink; */
   }
 `;
