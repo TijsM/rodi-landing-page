@@ -4,7 +4,6 @@ export const IntroOverlayContainer = styled.div`
   height: 100vh;
   position: absolute;
   width: 99vw;
-  background-color: ${({ theme }) => theme.dark};
 
 `;
 
@@ -15,6 +14,7 @@ export const OverlayColumn = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: ${({ theme }) => theme.dark};
 
   &:nth-of-type(2) {
     left: 33.33%;
