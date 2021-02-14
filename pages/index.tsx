@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { initGA } from "../utils/analytics";
 
+import IntroOverlay from '../components/IntroOverlay'
 import Header from "../components/Header";
 import Features from "../components/Features";
 import Screen from "../components/Screen";
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <ScreenWidth>
+      <IntroOverlay/>
       <Header />
       <Features startTime={startTime} />
       <Screen />
