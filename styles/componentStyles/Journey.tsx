@@ -36,7 +36,9 @@ export const SelectGroup = styled.div`
 `;
 
 export const Select = styled.div`
-  box-shadow: 0px 4px 24px 8px rgba(255, 255, 255, 0.05);
+  /* box-shadow: 0px 4px 24px 8px rgba(255, 255, 255, 0.05); */
+  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.4);
+
   font-weight: ${({ selected }) => selected && 700};
   text-decoration: ${({ selected }) => selected && "underline"};
   margin-top: 24px;
