@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const PageLayout = styled.div`
-  padding: 24px;
+  padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 24px" : "24px")};
   height: 100%;
 
   @media only screen and (min-width: 768px) {
-    padding: 96px;
+    padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 96px" : "96px")};
   }
   @media only screen and (min-width: 1600px) {
-    padding: 148px;
+    padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 148px" : "148px")};
   }
 `;
-
 
 export const ScreenWidth = styled.div`
   max-width: 100vw;

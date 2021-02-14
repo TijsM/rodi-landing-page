@@ -25,7 +25,7 @@ export default function Journey() {
       </TextBlock>
       <TextBlock>Upload the created route to rodi.app/routes.</TextBlock>
       <ImageGroup>
-        <ImageContainer>
+        <ImageContainer width={100} height={100}>
           <Image
             src="/images/komoot.png"
             alt="strava logo"
@@ -33,7 +33,7 @@ export default function Journey() {
             objectFit="contain"
           />
         </ImageContainer>
-        <ImageContainer>
+        <ImageContainer width={100} height={100}>
           <Image
             src="/images/strava.png"
             alt="strava logo"
@@ -47,8 +47,8 @@ export default function Journey() {
 
   const enjoy = (
     <>
-      <TextBlock>Open the Rodi, select your route. Enjoy!</TextBlock>
-      <ImageContainer width={"150px"} height={"150px"}>
+      <TextBlock>Open the Rodi app, select your route. Enjoy!</TextBlock>
+      <ImageContainer width={150} height={150}>
         <Image
           src="/images/rodi-app-icon.png"
           alt="strava logo"
@@ -64,12 +64,13 @@ export default function Journey() {
       <TextBlock>
         After completing your ride it will be shared on Strava immediatly.
       </TextBlock>
-      <ImageContainer width={"150px"} height={"150px"}>
+      <ImageContainer width={150} height={150}>
         <Image
           src="/images/strava.png"
           alt="strava logo"
           layout="fill"
           objectFit="contain"
+          quality={100}
         />
       </ImageContainer>
     </>
@@ -77,7 +78,7 @@ export default function Journey() {
 
   return (
     <Page>
-      <PageLayout>
+      <PageLayout ignoreVHeight>
         <Container>
           <SelectGroup>
             <Select onClick={() => setStep("plan")} selected={step === "plan"}>
