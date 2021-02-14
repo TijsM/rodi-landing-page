@@ -7,6 +7,7 @@ import Features from "../components/Features";
 import Screen from "../components/Screen";
 import Download from "../components/Download";
 import Journey from '../components/Journey'
+import Footer from '../components/Footer'
 
 import { ScreenWidth } from "../styles/Layouts";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Screen />
       <Download />
       <Journey/>
+      <Footer/>
     </ScreenWidth>
   );
 }
