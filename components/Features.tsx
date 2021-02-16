@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import Statistics from "../components/Statistics";
 
 import { PageLayout } from "../styles/Layouts";
