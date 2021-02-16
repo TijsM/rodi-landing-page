@@ -42,9 +42,9 @@ export default function IntroOverlay() {
   return (
     <>
       <IntroOverlayContainer ref={container}>
-        <OverlayColumn ref={col1}></OverlayColumn>
-        <OverlayColumn ref={col2}></OverlayColumn>
-        <OverlayColumn ref={col3}></OverlayColumn>
+        <OverlayColumn ref={col1}/>
+        <OverlayColumn ref={col2}/>
+        <OverlayColumn ref={col3}/>
       </IntroOverlayContainer>
     </>
   );
