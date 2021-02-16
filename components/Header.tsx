@@ -30,9 +30,9 @@ export default function Header() {
     <Container>
       <PageLayout>
         <Content>
-          <H1 ref={title}>Ready to go on your next adventure?</H1>
+          <H1 ref={title}>Ready for your next adventure?</H1>
           <InfoText>
-            Rodi is a free app witch functions as a bike computer showing the
+            Rodi is a free app which functions as a bike computer showing the
             route and statistics of your trip
           </InfoText>
           <Button

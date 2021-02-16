@@ -22,7 +22,7 @@ import {
 
 export default function Download() {
   const [showPopup, setShowPopup] = useState(false);
-  const listItems = ["No adds", "No subscriptions", "No data sharing"];
+  const listItems = ["No ads", "No subscriptions", "No data sharing"];
 
   const onClick = (platform: "ios" | "android") => {
     setShowPopup(true);
