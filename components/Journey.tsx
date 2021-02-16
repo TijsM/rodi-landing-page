@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 import Image from "next/image";
+import { gsap } from "gsap/dist/gsap";
 
 import {
   Page,
@@ -14,8 +16,24 @@ import { ImageGroup } from "../styles/componentStyles/Journey/Plan";
 
 import { PageLayout } from "../styles/Layouts";
 
+type JourneyStep = "plan" | "enjoy" | "share";
+
 export default function Journey() {
-  const [step, setStep] = useState<"plan" | "enjoy" | "share">("plan");
+  const [step, setStep] = useState<JourneyStep>("plan");
+  const explenation = useRef(null)
+
+  const changeStep = (selected: JourneyStep) => {
+    const tl = gsap.timeline();
+    tl.to(explenation.current, {
+      duration: 0.3,
+      opacity: 0
+    })
+    tl.call(setStep, [selected]);
+    tl.to(explenation.current, {
+      duration: 0.3,
+      opacity: 1
+    })
+  };
 
   const plan = (
     <>
@@ -81,23 +99,23 @@ export default function Journey() {
       <PageLayout ignoreVHeight>
         <Container>
           <SelectGroup>
-            <Select onClick={() => setStep("plan")} selected={step === "plan"}>
+            <Select onClick={() => changeStep("plan")} selected={step === "plan"}>
               Plan and discover routes
             </Select>
             <Select
-              onClick={() => setStep("enjoy")}
+              onClick={() => changeStep("enjoy")}
               selected={step === "enjoy"}
             >
               Enjoy it
             </Select>
             <Select
-              onClick={() => setStep("share")}
+              onClick={() => changeStep("share")}
               selected={step === "share"}
             >
               Share the adventure
             </Select>
           </SelectGroup>
-          <Explenation>
+          <Explenation ref={explenation}>
             {step === "plan" && plan}
             {step === "enjoy" && enjoy}
             {step === "share" && share}

@@ -17,7 +17,7 @@ export default function IntroOverlay() {
     const tl = gsap.timeline();
     tl.to(col1.current, {
       duration: 1.1,
-      delay: 1.5,
+      delay: 1.2,
       height: 0,
       ease: "power4.easeIn",
     })
@@ -42,9 +42,9 @@ export default function IntroOverlay() {
   return (
     <>
       <IntroOverlayContainer ref={container}>
-        <OverlayColumn ref={col1}></OverlayColumn>
-        <OverlayColumn ref={col2}></OverlayColumn>
-        <OverlayColumn ref={col3}></OverlayColumn>
+        <OverlayColumn ref={col1}/>
+        <OverlayColumn ref={col2}/>
+        <OverlayColumn ref={col3}/>
       </IntroOverlayContainer>
     </>
   );

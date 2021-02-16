@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import {
   Container,
@@ -11,6 +14,22 @@ import {
 import { PageLayout } from "../styles/Layouts";
 
 export default function Sceen() {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from("#backgroundImage", {
+      duration: 0.1,
+      ease: "ease",
+      scaleX: 1.3,
+      scaleY: 1.3,
+      scrollTrigger: {
+        trigger: "#backgroundImage",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }, []);
+
   return (
     <Container>
       <PageLayout>
@@ -30,6 +49,7 @@ export default function Sceen() {
         </LogoContainer>
       </PageLayout>
       <BackgroundImage
+        id="backgroundImage"
         src={"/images/flying-phone.png"}
         alt="phone screen"
         layout="fill"
