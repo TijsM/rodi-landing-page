@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Image from "next/image";
-
-import Statistics from '../components/Statistics'
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Statistics from "../components/Statistics";
 
 import { PageLayout } from "../styles/Layouts";
 import { H3 } from "../styles/Titles";
@@ -14,10 +15,10 @@ import {
 } from "../styles/componentStyles/Features";
 
 type Props = {
-  startTime: Date
-}
+  startTime: Date;
+};
 
-export default function Features({startTime}: Props) {
+export default function Features({ startTime }: Props) {
   const features = [
     {
       title: "Course navigation",
@@ -51,9 +52,31 @@ export default function Features({startTime}: Props) {
     },
   ];
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    registerExplenationAnimation("#text0");
+    registerExplenationAnimation("#text1");
+    registerExplenationAnimation("#text2");
+  }, []);
+
+  const registerExplenationAnimation = (id: string) => {
+    gsap.from(id, {
+      y: 180,
+      duration: 4,
+      ease: "ease",
+      scrollTrigger: {
+        trigger: id,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  };
+
+
   const renderIllustration = (illustration) => {
     if (illustration.type === "stats") {
-      return <Statistics startTime={startTime}/>;
+      return <Statistics startTime={startTime} />;
     } else {
       return (
         <Image
@@ -75,7 +98,7 @@ export default function Features({startTime}: Props) {
             <ImageContainer leftAlign={leftAllign}>
               {renderIllustration(feature.illustration)}
             </ImageContainer>
-            <TextContainer leftAlign={leftAllign}>
+            <TextContainer leftAlign={leftAllign} id={"text" + i}>
               <H3>{feature.title}</H3>
               <FeatureDescription>{feature.description}</FeatureDescription>
             </TextContainer>
