@@ -62,7 +62,7 @@ export default function Features({ startTime }: Props) {
 
   const registerExplenationAnimation = (id: string) => {
     gsap.from(id, {
-      y: 180,
+      y: 150,
       duration: 4,
       ease: "ease",
       scrollTrigger: {
