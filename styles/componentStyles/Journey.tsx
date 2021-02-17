@@ -94,6 +94,11 @@ export const TextBlock = styled.p`
   margin-top: 12px;
 `;
 
+export const A = styled.a`
+  color: ${({theme}) => theme.white};
+  padding: 0px 4px;
+`
+
 export const ImageContainer = styled.div`
   position: relative;
   width: ${({ width }) => width && width + "px"};

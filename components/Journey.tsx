@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
+import Link from "next/link";
 
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
@@ -12,10 +13,12 @@ import {
   TextBlock,
   ImageContainer,
   H2,
+  A,
 } from "../styles/componentStyles/Journey";
 import { ImageGroup } from "../styles/componentStyles/Journey/Plan";
 
 import { PageLayout } from "../styles/Layouts";
+import { LinkButton } from "../styles/LinkButton";
 
 type JourneyStep = "plan" | "enjoy" | "share";
 
@@ -39,10 +42,17 @@ export default function Journey() {
   const plan = (
     <>
       <TextBlock>
-        Create a route with the free service Komoot. You can also use Strava
-        premium to create routes.
+        Create your own routes with
+        <Link href="https://www.komoot.com/plan" passHref={true}>
+          <A target="_blank">Komoot</A>
+        </Link>
+        or
+        <Link href="https://www.strava.com/routes/new" passHref={true}>
+          <A target="_blank">Strava</A>
+        </Link>
+        and upload them{" "}
+        <LinkButton>here</LinkButton>.
       </TextBlock>
-      <TextBlock>Upload the created route to rodi.app/routes.</TextBlock>
       <ImageGroup>
         <ImageContainer width={100} height={100}>
           <Image
@@ -98,7 +108,7 @@ export default function Journey() {
   return (
     <Page>
       <PageLayout ignoreVHeight>
-      <H2>Get the most out of Rodi</H2>
+        <H2>Get the most out of Rodi</H2>
         <Container>
           <SelectGroup>
             <Select
