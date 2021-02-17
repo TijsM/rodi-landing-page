@@ -35,8 +35,8 @@ export default function Sceen() {
       <PageLayout>
         <TitleContainer>
           <InfoTitle>
-            Why put the best screen you own away and pay for a bad screen to put
-            on your handle bars?
+            Why put the best screen you own in your pocket and pay for a bad one
+            to put on your handle bars?
           </InfoTitle>
         </TitleContainer>
         <LogoContainer>

@@ -39,8 +39,9 @@ export default function Features({ startTime }: Props) {
   const features: Feature[] = [
     {
       title: "Course navigation",
-      description:
-        "Have a favorite route? Or don't now the area? Upload a route to --link-- and don't miss a turn on your next ride.",
+      // description:
+      //   "Have a favorite route? Or don't now the area? Upload a route to --link-- and don't miss a turn on your next ride.",
+      description: "Do you have a favorite route? Or don't have a clue where to go? find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
       link: { url: "rodi/tracks", text: "test" },
       illustration: {
         type: "image",
@@ -51,7 +52,7 @@ export default function Features({ startTime }: Props) {
     {
       title: "Track your performance",
       description:
-        "Rodi tracks your ride on the go. We use the gps sensor of your phone to display these valuable insights of your trip.",
+        "Rodi tracks your ride on the go. We use the gps sensor of your phone to display the valuable insights of your trip.",
       illustration: {
         type: "stats",
         src: "/images/feature-stats.png",
@@ -61,7 +62,7 @@ export default function Features({ startTime }: Props) {
     {
       title: '"Strava or didn’t happen"',
       description:
-        "From the moment you finnish the ride on Rodu, we will upload your route with your friends on Strava.",
+        "From the moment you finnish the ride on Rodi, we will upload your route with your friends on Strava.",
       illustration: {
         type: "image",
         src: "/images/feature-strava.png",
