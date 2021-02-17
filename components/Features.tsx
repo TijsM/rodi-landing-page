@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Statistics from "../components/Statistics";
+import DownloadPopup from "../components/DownloadPopup";
 
 import { PageLayout } from "../styles/Layouts";
 import { H3 } from "../styles/Titles";
@@ -15,16 +16,32 @@ import {
   FeatureBlock,
 } from "../styles/componentStyles/Features";
 
+import { LinkButton } from "../styles/LinkButton";
+
 type Props = {
   startTime: Date;
 };
 
+type Feature = {
+  title: string;
+  description: string;
+  link?: { url: string; text: string };
+  illustration: {
+    type: string;
+    src: string;
+    alt: string;
+  };
+};
+
 export default function Features({ startTime }: Props) {
-  const features = [
+  const [showPopup, setShowPopup] = useState(false);
+
+  const features: Feature[] = [
     {
       title: "Course navigation",
       description:
-        "Have a favorite route? Or don't now the area? Upload a route to Rodi.com/tracks and don't miss a turn on your next ride.",
+        "Have a favorite route? Or don't now the area? Upload a route to --link-- and don't miss a turn on your next ride.",
+      link: { url: "rodi/tracks", text: "test" },
       illustration: {
         type: "image",
         src: "/images/feature-map.png",
@@ -74,7 +91,6 @@ export default function Features({ startTime }: Props) {
     });
   };
 
-
   const renderIllustration = (illustration) => {
     if (illustration.type === "stats") {
       return <Statistics startTime={startTime} />;
@@ -90,22 +106,47 @@ export default function Features({ startTime }: Props) {
     }
   };
 
+  const getTextWithLink = (feature: Feature) => {
+    const splitted = feature.description.split(
+      new RegExp("(--link--" + "+)", "i")
+    );
+
+    return (
+      <FeatureDescription>
+        {splitted.map((text, i) => {
+          if (i % 2 == 0) {
+            return text;
+          } else {
+            return (
+              <LinkButton onClick={() => setShowPopup(true)}>
+                {feature.link.url}
+              </LinkButton>
+            );
+          }
+        })}
+      </FeatureDescription>
+    );
+  };
+
   return (
-    <PageLayout id="features" isSection>
-      {features.map((feature, i) => {
-        const leftAllign = !!(i % 2);
-        return (
-          <FeatureBlock key={i}>
-            <ImageContainer leftAlign={leftAllign}>
-              {renderIllustration(feature.illustration)}
-            </ImageContainer>
-            <TextContainer leftAlign={leftAllign} id={"text" + i}>
-              <H3>{feature.title}</H3>
-              <FeatureDescription>{feature.description}</FeatureDescription>
-            </TextContainer>
-          </FeatureBlock>
-        );
-      })}
-    </PageLayout>
+    <>
+      <PageLayout id="features" isSection>
+        {features.map((feature, i) => {
+          const leftAllign = !!(i % 2);
+          return (
+            <FeatureBlock key={i}>
+              <ImageContainer leftAlign={leftAllign}>
+                {renderIllustration(feature.illustration)}
+              </ImageContainer>
+              <TextContainer leftAlign={leftAllign} id={"text" + i}>
+                <H3>{feature.title}</H3>
+                {getTextWithLink(feature)}
+              </TextContainer>
+            </FeatureBlock>
+          );
+        })}
+      </PageLayout>
+      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+    </>
   );
 }

@@ -35,6 +35,11 @@ export const InfoText = styled.div`
   }
 `;
 
+export const Highlight = styled.span`
+  text-decoration: underline;
+  font-weight: 600;
+`;
+
 export const LearnMore = styled.div`
   width: 100%;
   position: absolute;

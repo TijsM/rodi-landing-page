@@ -11,6 +11,7 @@ import {
   Container,
   InfoText,
   LearnMore,
+  Highlight,
 } from "../styles/componentStyles/Header";
 
 export default function Header() {
@@ -31,9 +32,10 @@ export default function Header() {
       <PageLayout>
         <Content>
           <H1 ref={title}>Ready for your next adventure?</H1>
-          <InfoText>
-            Rodi is a free app which functions as a bike computer showing the
-            route and statistics of your trip
+          <InfoText >
+            Rodi is a <Highlight>free app</Highlight> which functions as a{" "}
+            <Highlight>bike computer</Highlight> showing the route and
+            statistics of your trip
           </InfoText>
           <Button
             link="download"

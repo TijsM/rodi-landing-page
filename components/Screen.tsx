@@ -19,8 +19,8 @@ export default function Sceen() {
     gsap.from("#backgroundImage", {
       duration: 0.1,
       ease: "ease",
-      scaleX: 1.3,
-      scaleY: 1.3,
+      scaleX: 1.4,
+      scaleY: 1.4,
       scrollTrigger: {
         trigger: "#backgroundImage",
         start: "top bottom",
