@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { H2 as DefaultH2 } from "../Titles";
 
 export const Page = styled.section`
   background-color: ${({ theme }) => theme.dark};
@@ -9,9 +10,23 @@ export const Page = styled.section`
   padding-top: 48px;
 
   @media only screen and (min-width: 900px) {
-  padding-top: 0px;
+    padding-top: 0px;
 
-    height: 75vh;
+    height: 85vh;
+  }
+`;
+
+export const H2 = styled(DefaultH2)`
+  color: ${({ theme }) => theme.white};
+  margin-bottom: 24px;
+
+  @media only screen and (min-width: 900px) {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 1100px) {
+    margin-top: 48px;
   }
 `;
 
@@ -23,7 +38,7 @@ export const Container = styled.div`
   @media only screen and (min-width: 900px) {
     display: grid;
     grid-template-columns: 2fr 3fr;
-    max-height: 100%;
+    max-height: 70%;
   }
 `;
 
@@ -32,14 +47,16 @@ export const SelectGroup = styled.div`
   flex-direction: column;
 
   @media only screen and (min-width: 900px) {
-    margin: 48px 0px;
+    margin: 0px 0px;
     justify-content: space-around;
   }
 `;
 
 export const Select = styled.div`
-  /* box-shadow: 0px 4px 24px 8px rgba(255, 255, 255, 0.05); */
-  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({ selected }) =>
+    selected
+      ? "0px 4px 24px 8px rgba(0, 0, 0, 0.3)"
+      : "0px 4px 12px 4px rgba(0, 0, 0, 0.15)"};
 
   font-weight: ${({ selected }) => selected && 700};
   text-decoration: ${({ selected }) => selected && "underline"};

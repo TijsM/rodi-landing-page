@@ -19,8 +19,8 @@ export default function Sceen() {
     gsap.from("#backgroundImage", {
       duration: 0.1,
       ease: "ease",
-      scaleX: 1.3,
-      scaleY: 1.3,
+      scaleX: 1.4,
+      scaleY: 1.4,
       scrollTrigger: {
         trigger: "#backgroundImage",
         start: "top bottom",
@@ -35,8 +35,8 @@ export default function Sceen() {
       <PageLayout>
         <TitleContainer>
           <InfoTitle>
-            Why put the best screen you own away and pay for a bad screen to put
-            on your handle bars?
+            Why put the best screen you own in your pocket and pay for a bad one
+            to put on your handle bars?
           </InfoTitle>
         </TitleContainer>
         <LogoContainer>
