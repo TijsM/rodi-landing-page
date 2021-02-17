@@ -11,6 +11,7 @@ import {
   Explenation,
   TextBlock,
   ImageContainer,
+  H2,
 } from "../styles/componentStyles/Journey";
 import { ImageGroup } from "../styles/componentStyles/Journey/Plan";
 
@@ -20,19 +21,19 @@ type JourneyStep = "plan" | "enjoy" | "share";
 
 export default function Journey() {
   const [step, setStep] = useState<JourneyStep>("plan");
-  const explenation = useRef(null)
+  const explenation = useRef(null);
 
   const changeStep = (selected: JourneyStep) => {
     const tl = gsap.timeline();
     tl.to(explenation.current, {
       duration: 0.3,
-      opacity: 0
-    })
+      opacity: 0,
+    });
     tl.call(setStep, [selected]);
     tl.to(explenation.current, {
       duration: 0.3,
-      opacity: 1
-    })
+      opacity: 1,
+    });
   };
 
   const plan = (
@@ -97,16 +98,20 @@ export default function Journey() {
   return (
     <Page>
       <PageLayout ignoreVHeight>
+      <H2>Get the most out of Rodi</H2>
         <Container>
           <SelectGroup>
-            <Select onClick={() => changeStep("plan")} selected={step === "plan"}>
+            <Select
+              onClick={() => changeStep("plan")}
+              selected={step === "plan"}
+            >
               Plan and discover routes
             </Select>
             <Select
               onClick={() => changeStep("enjoy")}
               selected={step === "enjoy"}
             >
-              Enjoy it
+              Enjoy the ride
             </Select>
             <Select
               onClick={() => changeStep("share")}
