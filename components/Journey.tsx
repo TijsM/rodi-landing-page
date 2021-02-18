@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 
+import DownloadPopup from "../components/DownloadPopup";
+
 import {
   Page,
   Container,
@@ -24,6 +26,8 @@ type JourneyStep = "plan" | "enjoy" | "share";
 
 export default function Journey() {
   const [step, setStep] = useState<JourneyStep>("plan");
+  const [showPopup, setShowPopup] = useState(false);
+
   const explenation = useRef(null);
 
   const changeStep = (selected: JourneyStep) => {
@@ -50,8 +54,7 @@ export default function Journey() {
         <Link href="https://www.strava.com/routes/new" passHref={true}>
           <A target="_blank">Strava</A>
         </Link>
-        and upload them{" "}
-        <LinkButton>here</LinkButton>.
+        and upload them to <LinkButton onClick={() => setShowPopup(true)}>rodi.app/tracks</LinkButton>.
       </TextBlock>
       <ImageGroup>
         <ImageContainer width={100} height={100}>
@@ -106,37 +109,40 @@ export default function Journey() {
   );
 
   return (
-    <Page>
-      <PageLayout ignoreVHeight>
-        <H2>Get the most out of Rodi</H2>
-        <Container>
-          <SelectGroup>
-            <Select
-              onClick={() => changeStep("plan")}
-              selected={step === "plan"}
-            >
-              Plan and discover routes
-            </Select>
-            <Select
-              onClick={() => changeStep("enjoy")}
-              selected={step === "enjoy"}
-            >
-              Enjoy the ride
-            </Select>
-            <Select
-              onClick={() => changeStep("share")}
-              selected={step === "share"}
-            >
-              Share the adventure
-            </Select>
-          </SelectGroup>
-          <Explenation ref={explenation}>
-            {step === "plan" && plan}
-            {step === "enjoy" && enjoy}
-            {step === "share" && share}
-          </Explenation>
-        </Container>
-      </PageLayout>
-    </Page>
+    <>
+      <Page>
+        <PageLayout ignoreVHeight>
+          <H2>Get the most out of Rodi</H2>
+          <Container>
+            <SelectGroup>
+              <Select
+                onClick={() => changeStep("plan")}
+                selected={step === "plan"}
+              >
+                Plan and discover routes
+              </Select>
+              <Select
+                onClick={() => changeStep("enjoy")}
+                selected={step === "enjoy"}
+              >
+                Enjoy the ride
+              </Select>
+              <Select
+                onClick={() => changeStep("share")}
+                selected={step === "share"}
+              >
+                Share the adventure
+              </Select>
+            </SelectGroup>
+            <Explenation ref={explenation}>
+              {step === "plan" && plan}
+              {step === "enjoy" && enjoy}
+              {step === "share" && share}
+            </Explenation>
+          </Container>
+        </PageLayout>
+      </Page>
+      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+    </>
   );
 }
