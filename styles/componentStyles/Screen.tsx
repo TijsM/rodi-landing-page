@@ -50,6 +50,9 @@ export const LogoContainer = styled.div`
     left: 96px;
     bottom: 48px;
   }
+  @media only screen and (min-width: 1600px) {
+    left: 148px
+  }
 `;
 
 export const Logo = styled(Image)`
