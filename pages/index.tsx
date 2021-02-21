@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import { initGA } from "../utils/analytics";
+
+import Headers from "../components/SeoHeaders";
 
 import IntroOverlay from "../components/IntroOverlay";
 import Header from "../components/Header";
@@ -24,33 +25,17 @@ export default function Home() {
   }, []);
 
   return (
-    <ScreenWidth>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "Rodi",
-              operatingSystem: ["ANDROID", "iOS"],
-              applicationCategory: "SportsApplication",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "EUR",
-              },
-            }),
-          }}
-        />
-      </Head>
-      <IntroOverlay />
-      <Header />
-      <Features startTime={startTime} />
-      <Screen />
-      <Download />
-      <Journey />
-      <Footer />
-    </ScreenWidth>
+    <>
+      <Headers />
+      <ScreenWidth>
+        <IntroOverlay />
+        <Header />
+        <Features startTime={startTime} />
+        <Screen />
+        <Download />
+        <Journey />
+        <Footer />
+      </ScreenWidth>
+    </>
   );
 }
