@@ -62,7 +62,7 @@ export default function Features({ startTime }: Props) {
     {
       title: '"Strava or didn’t happen"',
       description:
-        "From the moment you finnish the ride on Rodi, we will upload your route with your friends on Strava.",
+        "From the moment you finish the ride on Rodi, we will upload your route with your friends on Strava.",
       illustration: {
         type: "image",
         src: "/images/feature-strava.png",
