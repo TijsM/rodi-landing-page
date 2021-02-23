@@ -119,19 +119,19 @@ export default function Journey() {
                 onClick={() => changeStep("plan")}
                 selected={step === "plan"}
               >
-                Plan and discover routes
+                1. Plan and discover routes
               </Select>
               <Select
                 onClick={() => changeStep("enjoy")}
                 selected={step === "enjoy"}
               >
-                Enjoy the ride
+                2. Enjoy the ride
               </Select>
               <Select
                 onClick={() => changeStep("share")}
                 selected={step === "share"}
               >
-                Share the adventure
+                3. Share the adventure
               </Select>
             </SelectGroup>
             <Explenation ref={explenation}>
