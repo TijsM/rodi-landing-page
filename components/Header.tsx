@@ -35,7 +35,7 @@ export default function Header() {
           <InfoText >
             Rodi is a <Highlight>free app</Highlight> which functions as a{" "}
             <Highlight>bike computer</Highlight> showing the route and
-            statistics of your trip
+            statistics of your trip.
           </InfoText>
           <Button
             link="download"

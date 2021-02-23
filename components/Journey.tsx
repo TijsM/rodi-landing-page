@@ -112,7 +112,7 @@ export default function Journey() {
     <>
       <Page>
         <PageLayout ignoreVHeight>
-          <H2>Get the most out of Rodi</H2>
+          <H2>Get the most out of Rodi.</H2>
           <Container>
             <SelectGroup>
               <Select

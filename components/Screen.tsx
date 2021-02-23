@@ -36,7 +36,7 @@ export default function Sceen() {
         <TitleContainer>
           <InfoTitle>
             Why put the best screen you own in your pocket and pay for a bad one
-            to put on your handle bars?
+            to put on your bars?
           </InfoTitle>
         </TitleContainer>
         <LogoContainer>
