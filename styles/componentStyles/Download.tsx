@@ -19,7 +19,6 @@ export const Content = styled.article`
 `;
 
 export const Description = styled.div`
-  font-style: italic;
   font-size: 18px;
   color: ${({ theme }) => theme.dark};
   margin-top: 24px;
@@ -38,7 +37,6 @@ export const ListItem = styled.li`
   margin: 12px 3px;
   font-size: 18px;
 
-  font-style: italic;
   color: ${({ theme }) => theme.dark};
   @media only screen and (min-width: 768px) {
     font-size: 32px;

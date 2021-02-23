@@ -17,7 +17,6 @@ export const Content = styled.div`
 `;
 
 export const InfoText = styled.div`
-  font-style: italic;
   color: white;
   font-size: 18px;
   font-weight: 400;

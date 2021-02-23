@@ -55,8 +55,8 @@ export const TextContainer = styled.div`
 `;
 
 export const FeatureDescription = styled.p`
-  font-style: italic;
   font-weight: 200;
+  line-height: 125%;
   margin-top: 14px;
 
   @media only screen and (min-width: 768px) {

@@ -38,7 +38,7 @@ export const H2 = styled(DefaultH2)`
 
 export const Explenation = styled.div`
   margin-top: 24px;
-  font-style: italic;
+  /* font-style: c; */
   font-size: 18px;
   font-weight: 200;
   line-height: 125%;
@@ -96,7 +96,6 @@ export const Submit = styled.button`
 `;
 
 export const Close = styled.button`
-  font-style: italic;
   font-size: 14px;
   color: ${({ theme }) => theme.dark};
   opacity: 0.75;
