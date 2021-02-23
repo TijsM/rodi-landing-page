@@ -48,11 +48,11 @@ export default function Journey() {
       <TextBlock>
         Create your own routes with
         <Link href="https://www.komoot.com/plan" passHref={true}>
-          <A target="_blank">Komoot</A>
+          <A target="_blank" rel="noopener">Komoot</A>
         </Link>
         or
         <Link href="https://www.strava.com/routes/new" passHref={true}>
-          <A target="_blank">Strava</A>
+          <A target="_blank" rel="noopener">Strava</A>
         </Link>
         and upload them to <LinkButton onClick={() => setShowPopup(true)}>rodi.app/tracks</LinkButton>.
       </TextBlock>
@@ -112,26 +112,26 @@ export default function Journey() {
     <>
       <Page>
         <PageLayout ignoreVHeight>
-          <H2>Get the most out of Rodi</H2>
+          <H2>Get the most out of Rodi.</H2>
           <Container>
             <SelectGroup>
               <Select
                 onClick={() => changeStep("plan")}
                 selected={step === "plan"}
               >
-                Plan and discover routes
+                1. Plan and discover routes
               </Select>
               <Select
                 onClick={() => changeStep("enjoy")}
                 selected={step === "enjoy"}
               >
-                Enjoy the ride
+                2. Enjoy the ride
               </Select>
               <Select
                 onClick={() => changeStep("share")}
                 selected={step === "share"}
               >
-                Share the adventure
+                3. Share the adventure
               </Select>
             </SelectGroup>
             <Explenation ref={explenation}>

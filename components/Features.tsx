@@ -14,6 +14,7 @@ import {
   TextContainer,
   FeatureDescription,
   FeatureBlock,
+  H2
 } from "../styles/componentStyles/Features";
 
 import { LinkButton } from "../styles/LinkButton";
@@ -132,6 +133,7 @@ export default function Features({ startTime }: Props) {
   return (
     <>
       <PageLayout id="features" isSection>
+        <H2>This is how Rodi improves you next ride.</H2>
         {features.map((feature, i) => {
           const leftAllign = !!(i % 2);
           return (

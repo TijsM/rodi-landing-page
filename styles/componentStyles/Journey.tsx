@@ -11,7 +11,6 @@ export const Page = styled.section`
 
   @media only screen and (min-width: 900px) {
     padding-top: 0px;
-
     height: 85vh;
   }
 `;
@@ -43,34 +42,33 @@ export const Container = styled.div`
 `;
 
 export const SelectGroup = styled.div`
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
 
   @media only screen and (min-width: 900px) {
     margin: 0px 0px;
-    justify-content: space-around;
+    justify-content: center;
   }
 `;
 
 export const Select = styled.div`
-  box-shadow: ${({ selected }) =>
-    selected
-      ? "0px 4px 24px 8px rgba(0, 0, 0, 0.3)"
-      : "0px 4px 12px 4px rgba(0, 0, 0, 0.15)"};
-
   font-weight: ${({ selected }) => selected && 700};
   text-decoration: ${({ selected }) => selected && "underline"};
-  margin-top: 24px;
-  font-size: 24px;
+  background-color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.dark};
+  border-radius: 24px;
+  margin: 12px 0px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 24px;
+  padding: 16px;
   cursor: pointer;
+
   @media only screen and (min-width: 900px) {
-    padding: 36px;
-    font-size: 32px;
+    font-size: 24px;
+    margin: 24px 0px;
   }
 `;
 
@@ -95,9 +93,9 @@ export const TextBlock = styled.p`
 `;
 
 export const A = styled.a`
-  color: ${({theme}) => theme.white};
+  color: ${({ theme }) => theme.white};
   padding: 0px 4px;
-`
+`;
 
 export const ImageContainer = styled.div`
   position: relative;
