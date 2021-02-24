@@ -42,7 +42,7 @@ export default function Features({ startTime }: Props) {
       title: "Course navigation",
       // description:
       //   "Have a favorite route? Or don't now the area? Upload a route to --link-- and don't miss a turn on your next ride.",
-      description: "Do you have a favorite route? Or don't have a clue where to go? find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
+      description: "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
       link: { url: "rodi.app/tracks", text: "test" },
       illustration: {
         type: "image",
@@ -133,7 +133,7 @@ export default function Features({ startTime }: Props) {
   return (
     <>
       <PageLayout id="features" isSection>
-        <H2>This is how Rodi improves you next ride.</H2>
+        <H2>This is how Rodi improves your next ride.</H2>
         {features.map((feature, i) => {
           const leftAllign = !!(i % 2);
           return (
