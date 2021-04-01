@@ -78,7 +78,7 @@ export default function DownloadPopup({ onClose }: Props) {
               We are working hard to get Rodi ready as fast as possible.
             </ExplenationSection>
             <ExplenationSection>
-              Leave your email and be notifified when you can download the
+              Leave your email and be notified when you can download the
               app from the stores.
             </ExplenationSection>
           </Explenation>
