@@ -6,6 +6,7 @@ export const Section = styled.section`
   min-height: 100vh;
   line-height: 20px;
   font-size: 18px;
+  padding: 72px 0px;
 `;
 
 export const Article = styled.article`
@@ -30,6 +31,8 @@ export const Strong = styled.strong`
   font-weight: 700;
   text-decoration: underline;
   font-size: 24px;
+  margin-top: 48px;
+  display: block;
 `;
 
 export const A = styled.a`
@@ -39,6 +42,8 @@ export const A = styled.a`
 `;
 
 export const Li = styled.li`
+  margin-left: 16px;
   padding-left: 16px;
   padding-bottom: 8px;
+  list-style-type: disc;
 `;
