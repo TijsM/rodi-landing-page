@@ -1,34 +1,31 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import gsap from "gsap";
 
 import Headers from "../components/SeoHeaders";
-import Button from "../components/Button";
+import Intro from "../components/upload/Intro";
+import Login from "../components/upload/Login";
 
 import { ScreenWidth } from "../styles/Layouts";
-import {
-  Article,
-  Section,
-  Description,
-  ButtonContainer,
-} from "../styles/Upload";
-import { H1 } from "../styles/Titles";
+import { Section } from "../styles/Upload";
 
 type UploadStep = "intro" | "login" | "upload" | "done";
 
 export default function Home() {
   const [step, setStep] = useState<UploadStep>("intro");
-
   const tempRef = useRef(null);
+  const [user, setUser] = useState<any>();
 
+
+  console.log('user', user)
   const steps: UploadStep[] = ["intro", "login", "upload", "done"];
 
   const next = () => {
     const currentStepIndex = steps.indexOf(step);
     const tl = gsap.timeline();
 
-    const ANIMATION_DURATION = 0.5
-    const FADE_OFFSET = 500
+    const ANIMATION_DURATION = 0.5;
+    const FADE_OFFSET = 500;
 
     const fadeOut = () => {
       tl.to(tempRef.current, {
@@ -61,46 +58,16 @@ export default function Home() {
     fadeIn();
   };
 
-  const intro = (
-    <Article>
-      <H1>Ready to go on your next adventure?</H1>
-      <Description>
-        Upload your created route here, and open it in the app!
-      </Description>
-      <ButtonContainer>
-        <Button
-          text="Upload a route"
-          onClick={() => {
-            next();
-          }}
-        />
-      </ButtonContainer>
-    </Article>
-  );
-
-  const logIn = (
-    <Article>
-      <H1>We have to know who you are.</H1>
-      <Description>Log in to your Rodi account so you can find your route straight into your app.</Description>
-      <ButtonContainer>
-        <Button
-          text="Log in"
-          onClick={() => {
-            next();
-          }}
-        />
-      </ButtonContainer>
-    </Article>
-  );
-
   return (
     <>
       <Headers />
       <ScreenWidth>
         <Section>
           <div ref={tempRef}>
-            {step === "intro" && intro}
-            {step === "login" && logIn}
+            {step === "intro" && <Intro next={() => next()} />}
+            {step === "login" && (
+              <Login next={() => next()} setUser={setUser} />
+            )}
           </div>
         </Section>
       </ScreenWidth>

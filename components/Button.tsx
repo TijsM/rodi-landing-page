@@ -10,6 +10,7 @@ type Props = {
   onClick?: () => void;
   size?: "normal" | "small";
   trackingData?: AnalyticsData;
+  disabled?: boolean;
 };
 
 export default function Button({
@@ -18,6 +19,7 @@ export default function Button({
   size = "normal",
   trackingData,
   onClick,
+  disabled = false,
 }: Props) {
   const getSizes = () => {
     return size === "normal"
@@ -46,6 +48,7 @@ export default function Button({
           },
         };
   };
+
   return (
     <StyledButton
       onClick={() => {
