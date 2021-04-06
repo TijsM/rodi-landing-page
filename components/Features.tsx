@@ -120,7 +120,7 @@ export default function Features({ startTime }: Props) {
             return text;
           } else {
             return (
-              <LinkButton onClick={() => setShowPopup(true)}>
+              <LinkButton key={i} onClick={() => setShowPopup(true)}>
                 {feature.link.url}
               </LinkButton>
             );
