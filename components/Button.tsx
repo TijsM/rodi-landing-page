@@ -51,6 +51,7 @@ export default function Button({
 
   return (
     <StyledButton
+      disabled={disabled}
       onClick={() => {
         if (trackingData) {
           logEvent(trackingData);

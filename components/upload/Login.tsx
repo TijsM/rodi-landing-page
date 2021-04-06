@@ -42,9 +42,10 @@ export default function Login({ next, setUser }: UploadPageProps) {
     if (user.error) {
       setPassword("");
       setError("Account not found...");
+    } else {
+      setUser(user);
+      next();
     }
-    setUser(user);
-    next();
   };
 
   return (
@@ -70,6 +71,7 @@ export default function Login({ next, setUser }: UploadPageProps) {
           <Loader color={"white"} size={24} />
         ) : (
           <Button
+            disabled={!(email.length > 0) || !(password.length > 0)}
             text="Log in"
             onClick={() => {
               onLogIn();
