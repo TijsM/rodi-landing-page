@@ -16,16 +16,6 @@ import {
 } from "../styles/Legal";
 
 export default function Home() {
-  const [startTime, setStartTime] = useState<Date | undefined>();
-
-  useEffect(() => {
-    initGA();
-  }, []);
-
-  useEffect(() => {
-    setStartTime(new Date());
-  }, []);
-
   return (
     <>
       <Headers />
