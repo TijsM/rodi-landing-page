@@ -57,7 +57,11 @@ export default function Login({ next, setUser }: UploadPageProps) {
       </Description>
 
       <InputContainer>
-        <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <Input
+          placeholder="Email"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <Input
           value={password}
           placeholder="Password"

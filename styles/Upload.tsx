@@ -43,6 +43,11 @@ export const Input = styled.input`
   background-color: transparent;
   color: white;
 `;
+export const FileInput = styled.input`
+ width: 100%;
+  font-size: 24px;
+  border: none;
+`
 
 export const InputContainer = styled.div`
   padding: 24px 0;

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Headers from "../components/SeoHeaders";
 import Intro from "../components/upload/Intro";
 import Login from "../components/upload/Login";
+import UploadRoute from "../components/upload/UploadRoute";
 
 import { ScreenWidth } from "../styles/Layouts";
 import { Section } from "../styles/Upload";
@@ -16,8 +17,6 @@ export default function Home() {
   const tempRef = useRef(null);
   const [user, setUser] = useState<any>();
 
-
-  console.log('user', user)
   const steps: UploadStep[] = ["intro", "login", "upload", "done"];
 
   const next = () => {
@@ -67,6 +66,9 @@ export default function Home() {
             {step === "intro" && <Intro next={() => next()} />}
             {step === "login" && (
               <Login next={() => next()} setUser={setUser} />
+            )}
+            {step === "upload" && (
+              <UploadRoute next={() => next()} user={user} />
             )}
           </div>
         </Section>
