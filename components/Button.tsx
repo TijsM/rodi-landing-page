@@ -6,9 +6,11 @@ import { StyledButton } from "../styles/Button";
 
 type Props = {
   text: string;
-  link: string;
+  link?: string;
+  onClick?: () => void;
   size?: "normal" | "small";
-  trackingData: AnalyticsData;
+  trackingData?: AnalyticsData;
+  disabled?: boolean;
 };
 
 export default function Button({
@@ -16,6 +18,8 @@ export default function Button({
   link,
   size = "normal",
   trackingData,
+  onClick,
+  disabled = false,
 }: Props) {
   const getSizes = () => {
     return size === "normal"
@@ -44,14 +48,22 @@ export default function Button({
           },
         };
   };
+
   return (
     <StyledButton
+      disabled={disabled}
       onClick={() => {
-        logEvent(trackingData);
+        if (trackingData) {
+          logEvent(trackingData);
+        }
 
-        document.getElementById(link).scrollIntoView({
-          behavior: "smooth",
-        });
+        if (link) {
+          document.getElementById(link).scrollIntoView({
+            behavior: "smooth",
+          });
+        } else {
+          onClick();
+        }
       }}
       sizes={getSizes()}
     >

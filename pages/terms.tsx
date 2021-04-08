@@ -7,16 +7,6 @@ import { ScreenWidth } from "../styles/Layouts";
 import { Article, Section, Header, H1, P, Strong, A, Li } from "../styles/Legal";
 
 export default function Home() {
-  const [startTime, setStartTime] = useState<Date | undefined>();
-
-  useEffect(() => {
-    initGA();
-  }, []);
-
-  useEffect(() => {
-    setStartTime(new Date());
-  }, []);
-
   return (
     <>
       <Headers />
