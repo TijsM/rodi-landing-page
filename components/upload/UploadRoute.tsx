@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Loader from "react-spinners/SyncLoader";
 
 import Button from "../Button";
 
@@ -10,21 +11,36 @@ import {
   Input,
   InputContainer,
   FileInput,
-  ErrorText
+  ErrorText,
 } from "../../styles/Upload";
 
 import { UploadPageProps } from "./UploadTypes";
 
 import { backendUrl } from "../../constants/api";
 
+type File = {
+  lastModified: number;
+  lastModifiedDate: Date;
+  name: string;
+  size: number;
+  type: string;
+};
+
 export default function UploadRoute({ next, user }: UploadPageProps) {
   const [routeName, setRouteName] = useState("");
-  const [route, setRoute] = useState();
+  const [route, setRoute] = useState<undefined | File>();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const allFieldsFilledIn = !!routeName && route;
+  const fileIsGpx =
+    route?.name?.split(".")[route?.name?.split(".")?.length - 1] === "gpx";
+
 
   const upload = async () => {
+    setLoading(true);
     const formData = new FormData();
-    formData.append("gpx", route);
+    formData.append("gpx", (route as unknown) as Blob);
     formData.append("trackName", routeName);
 
     const res: any = await fetch(backendUrl + "/uploadRoute", {
@@ -36,11 +52,12 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
     });
 
     const response = await res.json();
-    console.log('response', response)
+    setLoading(false);
+
     if (response.fileName) {
       next();
     } else {
-      setError(response.message)
+      setError(response.message);
     }
   };
 
@@ -63,12 +80,17 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
       </InputContainer>
       {error && <ErrorText>{error}</ErrorText>}
       <ButtonContainer>
-        <Button
-          text="Upload"
-          onClick={() => {
-            upload();
-          }}
-        />
+        {loading ? (
+          <Loader color={"white"} size={24} />
+        ) : (
+          <Button
+          disabled={!allFieldsFilledIn ||  !fileIsGpx}
+            text="Upload"
+            onClick={() => {
+              upload();
+            }}
+          />
+        )}
       </ButtonContainer>
     </Article>
   );

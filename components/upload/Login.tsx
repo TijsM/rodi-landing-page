@@ -48,6 +48,12 @@ export default function Login({ next, setUser }: UploadPageProps) {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      onLogIn();
+    }
+  };
+
   return (
     <Article>
       <H1>We have to know who you are.</H1>
@@ -61,12 +67,14 @@ export default function Login({ next, setUser }: UploadPageProps) {
           placeholder="Email"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
         <Input
           value={password}
           placeholder="Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
       </InputContainer>
       {error && <ErrorText>{error}</ErrorText>}
