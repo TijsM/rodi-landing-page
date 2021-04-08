@@ -5,9 +5,7 @@ import { H1 as defaultH1 } from "./Titles";
 export const H1 = styled(defaultH1)`
   font-size: 48px;
   line-height: 100%;
-
-  /* mix-blend-mode: difference; */
-
+  
   @media only screen and (min-width: 768px) {
     font-size: 72px;
   }

@@ -15,7 +15,7 @@ export default function Done({ next }: UploadPageProps) {
         <Button
           text="Upload another one"
           onClick={() => {
-            next("upload");
+            next();
           }}
         />
       </ButtonContainer>
