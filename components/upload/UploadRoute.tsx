@@ -10,6 +10,7 @@ import {
   Input,
   InputContainer,
   FileInput,
+  ErrorText
 } from "../../styles/Upload";
 
 import { UploadPageProps } from "./UploadTypes";
@@ -19,24 +20,28 @@ import { backendUrl } from "../../constants/api";
 export default function UploadRoute({ next, user }: UploadPageProps) {
   const [routeName, setRouteName] = useState("");
   const [route, setRoute] = useState();
-  console.log("route", route)
+  const [error, setError] = useState("");
 
   const upload = async () => {
     const formData = new FormData();
     formData.append("gpx", route);
     formData.append("trackName", routeName);
 
-
     const res: any = await fetch(backendUrl + "/uploadRoute", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "x-access-token": user.token,
       },
       body: formData,
     });
 
-    console.log(await res.json())
+    const response = await res.json();
+    console.log('response', response)
+    if (response.fileName) {
+      next();
+    } else {
+      setError(response.message)
+    }
   };
 
   return (
@@ -56,11 +61,12 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
           onChange={(e) => setRoute(e.target.files[0])}
         />
       </InputContainer>
+      {error && <ErrorText>{error}</ErrorText>}
       <ButtonContainer>
         <Button
           text="Upload"
           onClick={() => {
-           upload()
+            upload();
           }}
         />
       </ButtonContainer>
