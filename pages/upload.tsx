@@ -6,6 +6,7 @@ import Headers from "../components/SeoHeaders";
 import Intro from "../components/upload/Intro";
 import Login from "../components/upload/Login";
 import UploadRoute from "../components/upload/UploadRoute";
+import Done from "../components/upload/Done";
 
 import { ScreenWidth } from "../styles/Layouts";
 import { Section } from "../styles/Upload";
@@ -34,7 +35,8 @@ export default function Home() {
       });
     };
     const updateState = () => {
-      tl.call(setStep, [steps[currentStepIndex + 1]]);
+      const nextStep = step === "done" ? "upload" : steps[currentStepIndex + 1];
+      tl.call(setStep, [nextStep]);
     };
     const prepareForFadeInAnimation = () => {
       tl.to(tempRef.current, {
@@ -70,6 +72,7 @@ export default function Home() {
             {step === "upload" && (
               <UploadRoute next={() => next()} user={user} />
             )}
+            {step === "done" && <Done next={() => next()} />}
           </div>
         </Section>
       </ScreenWidth>

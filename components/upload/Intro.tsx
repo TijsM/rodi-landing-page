@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 
 import { Article, Description, ButtonContainer, H1 } from "../../styles/Upload";
 
-import { UploadPageProps } from "./UploadTypes";
+import { UploadPageProps } from "../../types/UploadTypes";
 
 export default function Intro({ next }: UploadPageProps) {
   return (

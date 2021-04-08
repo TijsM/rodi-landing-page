@@ -14,7 +14,7 @@ import {
   ErrorText,
 } from "../../styles/Upload";
 
-import { UploadPageProps } from "./UploadTypes";
+import { UploadPageProps } from "../../types/UploadTypes";
 
 import { backendUrl } from "../../constants/api";
 
