@@ -17,9 +17,10 @@ import { PageLayout } from "../styles/Layouts";
 
 type Props = {
   onClose: () => void;
+  skipMessage: string
 };
 
-export default function DownloadPopup({ onClose }: Props) {
+export default function DownloadPopup({ onClose, skipMessage }: Props) {
   const [email, setEmail] = useState("");
 
   const onSubmit = async () => {
@@ -93,7 +94,7 @@ export default function DownloadPopup({ onClose }: Props) {
             <Submit onClick={onSubmit}>Submit</Submit>
           </FormContainer>
         </PageLayout>
-        <Close onClick={closeModal}>Naah, leave me alone...</Close>
+        <Close onClick={closeModal}>{skipMessage}</Close>
       </Popup>
     </BackDrop>
   );

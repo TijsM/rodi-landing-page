@@ -22,6 +22,7 @@ import {
 
 export default function Download() {
   const [showPopup, setShowPopup] = useState(false);
+
   const listItems = ["No ads", "No subscriptions", "No data sharing"];
 
   const onClick = (platform: "ios" | "android") => {
@@ -72,7 +73,12 @@ export default function Download() {
           </MockupContainer>
         </Container>
       </PageLayout>
-      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+      {showPopup && (
+        <DownloadPopup
+          onClose={() => setShowPopup(false)}
+          skipMessage="Naah, leave me alone..."
+        />
+      )}
     </>
   );
 }

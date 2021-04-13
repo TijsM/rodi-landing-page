@@ -34,7 +34,12 @@ export default function Footer() {
           </DownloadButtons>
         </Container>
       </PageLayout>
-      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+      {showPopup && (
+        <DownloadPopup
+          onClose={() => setShowPopup(false)}
+          skipMessage="Naah, leave me alone..."
+        />
+      )}
     </>
   );
 }

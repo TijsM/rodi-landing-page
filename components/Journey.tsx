@@ -48,13 +48,21 @@ export default function Journey() {
       <TextBlock>
         Create your own routes with
         <Link href="https://www.komoot.com/plan" passHref={true}>
-          <A target="_blank" rel="noopener">Komoot</A>
+          <A target="_blank" rel="noopener">
+            Komoot
+          </A>
         </Link>
         or
         <Link href="https://www.strava.com/routes/new" passHref={true}>
-          <A target="_blank" rel="noopener">Strava</A>
+          <A target="_blank" rel="noopener">
+            Strava
+          </A>
         </Link>
-        and upload them to <LinkButton onClick={() => setShowPopup(true)}>rodi.app/tracks</LinkButton>.
+        and upload them to{" "}
+        <LinkButton onClick={() => setShowPopup(true)}>
+          rodi.app/tracks
+        </LinkButton>
+        .
       </TextBlock>
       <ImageGroup>
         <ImageContainer width={100} height={100}>
@@ -142,7 +150,12 @@ export default function Journey() {
           </Container>
         </PageLayout>
       </Page>
-      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+      {showPopup && (
+        <DownloadPopup
+          onClose={() => setShowPopup(false)}
+          skipMessage="Naah, leave me alone..."
+        />
+      )}
     </>
   );
 }

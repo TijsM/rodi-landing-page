@@ -14,7 +14,7 @@ import {
   TextContainer,
   FeatureDescription,
   FeatureBlock,
-  H2
+  H2,
 } from "../styles/componentStyles/Features";
 
 import { LinkButton } from "../styles/LinkButton";
@@ -42,7 +42,8 @@ export default function Features({ startTime }: Props) {
       title: "Course navigation",
       // description:
       //   "Have a favorite route? Or don't now the area? Upload a route to --link-- and don't miss a turn on your next ride.",
-      description: "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
+      description:
+        "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
       link: { url: "rodi.app/tracks", text: "test" },
       illustration: {
         type: "image",
@@ -149,7 +150,12 @@ export default function Features({ startTime }: Props) {
           );
         })}
       </PageLayout>
-      {showPopup && <DownloadPopup onClose={() => setShowPopup(false)} />}
+      {showPopup && (
+        <DownloadPopup
+          onClose={() => setShowPopup(false)}
+          skipMessage="Naah, leave me alone..."
+        />
+      )}
     </>
   );
 }
