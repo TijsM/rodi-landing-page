@@ -4,6 +4,7 @@ import { initGA, logPageView } from "../utils/analytics";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
+import Headers from "../components/SeoHeaders";
 import DownloadPopup from "../components/DownloadPopup";
 
 const Placeholder = styled.div`
@@ -17,17 +18,20 @@ export default function Signup() {
 
   useEffect(() => {
     initGA();
-    logPageView()
+    logPageView();
   }, []);
 
   return (
-    <Placeholder>
-      <DownloadPopup
-        onClose={() => {
-          router.push("/");
-        }}
-        skipMessage="Learn more about Rodi first."
-      />
-    </Placeholder>
+    <>
+      <Headers />
+      <Placeholder>
+        <DownloadPopup
+          onClose={() => {
+            router.push("/");
+          }}
+          skipMessage="Learn more about Rodi first."
+        />
+      </Placeholder>
+    </>
   );
 }
