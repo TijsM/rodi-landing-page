@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { initGA } from "../utils/analytics";
+import { initGA, logPageView } from "../utils/analytics";
 
 import Headers from "../components/SeoHeaders";
 
@@ -18,6 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     initGA();
+    logPageView();
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { initGA, logPageView } from "../utils/analytics";
+
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
@@ -12,6 +14,11 @@ const Placeholder = styled.div`
 
 export default function Signup() {
   const router = useRouter();
+
+  useEffect(() => {
+    initGA();
+    logPageView()
+  }, []);
 
   return (
     <Placeholder>
