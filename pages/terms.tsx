@@ -152,7 +152,7 @@ export default function Home() {
             </P>
             <P>
               If you have any questions or suggestions about my Terms and
-              Conditions, do not hesitate to contact me at rodi.app@hey.com.
+              Conditions, do not hesitate to contact me at rodi-app@outlook.com.
             </P>
             <P></P>
           </Article>

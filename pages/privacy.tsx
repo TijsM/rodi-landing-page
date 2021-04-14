@@ -193,7 +193,7 @@ export default function Home() {
             </P>
             <P>
               If you have any questions or suggestions about my Privacy Policy,
-              do not hesitate to contact me at rodi.app@hey.com.
+              do not hesitate to contact me at rodi-app@outlook.com.
             </P>
           </Article>
         </Section>
