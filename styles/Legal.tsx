@@ -6,7 +6,7 @@ export const Section = styled.section`
   min-height: 100vh;
   line-height: 20px;
   font-size: 18px;
-  padding: 72px 0px;
+  padding: 72px 24px;
 `;
 
 export const Article = styled.article`
@@ -21,6 +21,7 @@ export const Header = styled.header`
 
 export const H1 = styled.h1`
   font-size: 72px;
+  line-height: 96px;
 `;
 
 export const P = styled.p`
@@ -37,8 +38,8 @@ export const Strong = styled.strong`
 
 export const A = styled.a`
   text-decoration: underline;
-  opacity: 0.7;
   color: ${({ theme }) => theme.white};
+  opacity: 0.7;
 `;
 
 export const Li = styled.li`
