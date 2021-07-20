@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {H2 as DefaultH2} from '../Titles'
+import { H2 as DefaultH2 } from "../Titles";
 
 export const FeatureBlock = styled.article`
   margin: 48px 0px;
@@ -17,10 +17,9 @@ export const H2 = styled(DefaultH2)`
 
   @media only screen and (min-width: 768px) {
     width: 85%;
-  margin-bottom: 128px;
-
+    margin-bottom: 128px;
   }
-`
+`;
 
 export const ImageContainer = styled.div`
   width: 75vw;
