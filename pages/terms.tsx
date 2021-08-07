@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import { initGA } from "../utils/analytics";
-
 import Headers from "../components/SeoHeaders";
 
 import { ScreenWidth } from "../styles/Layouts";
