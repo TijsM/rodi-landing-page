@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+
 import { initGA, logPageView } from "../utils/analytics";
-import { useRouter } from "next/router";
+import useStravaAuth from "../hooks/useStravaAuth";
 
 import Headers from "../components/SeoHeaders";
 
@@ -16,7 +17,7 @@ import { ScreenWidth } from "../styles/Layouts";
 
 export default function Home() {
   const [startTime, setStartTime] = useState<Date | undefined>();
-  const router = useRouter();
+  useStravaAuth();
 
   useEffect(() => {
     initGA();
@@ -26,15 +27,6 @@ export default function Home() {
   useEffect(() => {
     setStartTime(new Date());
   }, []);
-
-  // redirect to the app after authentication on strava app
-  useEffect(() => {
-    const code = router.query?.code;
-    if (code) {
-      window.location = "rodi://stravaAuthSuccess?code="+code;
-    }
-  }, []);
-
 
   return (
     <>
