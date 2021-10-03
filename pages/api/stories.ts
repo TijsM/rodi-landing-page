@@ -23,7 +23,7 @@ interface Thumbnails {
   full: ImageSze;
 }
 
-interface Attachment {
+export interface Attachment {
   id: string;
   width: number;
   height: number;
@@ -64,6 +64,8 @@ export default async function handler(req, res) {
       function done(err) {
         if (err) {
           console.error(err);
+          res.status(400).json(err);
+
           return;
         }
         res.status(200).json(stories);

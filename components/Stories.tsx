@@ -32,7 +32,7 @@ export default function Stories() {
       <StoriesContainer>
         {stories.map((story) => {
           return (
-            <Link href={"/story/" + story.id}>
+            <Link href={"/story/" + story.id} key={story.id}>
               <StoryCard>
                 <H4>{story.title}</H4>
                 <Context>{story.context}</Context>
