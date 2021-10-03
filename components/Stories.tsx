@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import { H2 } from "../styles/Titles";
 import { PageLayout } from "../styles/Layouts";
+import {
+  StoriesContainer,
+  StoryCard,
+  H4,
+  Context,
+} from "../styles/componentStyles/Stories";
+
 import { Story } from "../pages/api/stories";
 
 export default function Stories() {
@@ -21,6 +28,16 @@ export default function Stories() {
   return (
     <PageLayout>
       <H2>Learn more!</H2>
+      <StoriesContainer>
+        {stories.map((story) => {
+          return (
+            <StoryCard>
+              <H4>{story.title}</H4>
+              <Context>{story.context}</Context>
+            </StoryCard>
+          );
+        })}
+      </StoriesContainer>
     </PageLayout>
   );
 }

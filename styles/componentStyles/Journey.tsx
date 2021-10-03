@@ -57,7 +57,7 @@ export const Select = styled.div`
   text-decoration: ${({ selected }) => selected && "underline"};
   background-color: ${({ theme }) => theme.white};
   color: ${({ theme }) => theme.dark};
-  border-radius: 24px;
+  /* border-radius: 24px; */
   margin: 12px 0px;
   font-size: 16px;
   display: flex;
