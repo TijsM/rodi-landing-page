@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { logEvent } from "../utils/analytics";
-
-import { Apple, Play } from "../components/storeButtons/Index";
-import DownloadPopup from "../components/DownloadPopup";
-
-import { H2, H3 } from "../styles/Titles";
-import { Container, DownloadButtons } from "../styles/componentStyles/Footer";
+import { H2 } from "../styles/Titles";
 import { PageLayout } from "../styles/Layouts";
+import { Story } from "../pages/api/stories";
 
 export default function Stories() {
+  const [stories, setStories] = useState<Story[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("/api/stories");
+      const data = await res.json();
+
+      setStories(data);
+    };
+
+    getData();
+  }, []);
+
   return (
     <PageLayout>
       <H2>Learn more!</H2>
