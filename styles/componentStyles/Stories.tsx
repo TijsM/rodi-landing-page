@@ -5,12 +5,15 @@ export const StoriesContainer = styled.div`
   flex-direction: row;
 `;
 
-export const StoryCard = styled.div`
+export const StoryCard = styled.a`
   width: 320px;
   padding: 48px 24px;
   box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.08);
   margin-right: 48px;
   margin-top: 48px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
 `;
 
 export const H4 = styled.h4`
@@ -19,6 +22,7 @@ export const H4 = styled.h4`
   color: ${(props) => props.theme.dark};
   line-height: 125%;
   width: 85%;
+  text-align: left;
 `;
 
 export const Context = styled.p`
@@ -26,8 +30,8 @@ export const Context = styled.p`
   line-height: 125%;
   margin-top: 14px;
   font-size: 24px;
-  /* font-style: italic; */
   color: ${(props) => props.theme.dark};
   opacity: 0.75;
   margin-top: 24px;
+  text-align: left;
 `;

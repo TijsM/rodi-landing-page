@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 import { H2 } from "../styles/Titles";
 import { PageLayout } from "../styles/Layouts";
@@ -31,10 +32,12 @@ export default function Stories() {
       <StoriesContainer>
         {stories.map((story) => {
           return (
-            <StoryCard>
-              <H4>{story.title}</H4>
-              <Context>{story.context}</Context>
-            </StoryCard>
+            <Link href={"/story/" + story.id}>
+              <StoryCard>
+                <H4>{story.title}</H4>
+                <Context>{story.context}</Context>
+              </StoryCard>
+            </Link>
           );
         })}
       </StoriesContainer>

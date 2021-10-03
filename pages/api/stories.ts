@@ -8,6 +8,7 @@ export interface Story {
   title: string;
   context: string;
   images: string[];
+  id: number;
 }
 
 interface ImageSze {
@@ -51,6 +52,7 @@ export default async function handler(req, res) {
           const rec = {
             title: record.get("title"),
             context: record.get("context"),
+            id: record.get("id"),
             images: imgUrls,
           };
 
