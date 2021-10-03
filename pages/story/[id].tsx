@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { useRouter } from "next/router";
 
 import { PageLayout } from "../../styles/Layouts";
@@ -28,12 +28,13 @@ const H1 = styled(defaultH1)`
 
 const Container = styled.div`
   margin: auto;
-  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.25);
 `;
 export default function StoryDetail() {
   const [storyData, setStoryData] = useState<Story>(undefined);
   const router = useRouter();
   const { id } = router.query;
+  const theme = useTheme();
 
   useEffect(() => {
     const getData = async () => {
@@ -61,6 +62,7 @@ export default function StoryDetail() {
           }))}
           loop={true}
           defaultInterval={5000}
+          storyContainerStyles={{ backgroundColor: theme.dark }}
         />
       </Container>
     </Layout>
