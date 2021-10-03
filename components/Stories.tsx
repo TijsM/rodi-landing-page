@@ -27,8 +27,10 @@ export default function Stories() {
   }, []);
 
   return (
-    <PageLayout>
-      <H2>Learn more.</H2>
+    <>
+      <PageLayout>
+        <H2>Learn more.</H2>
+      </PageLayout>
       <StoriesContainer>
         {stories.map((story) => {
           return (
@@ -41,6 +43,6 @@ export default function Stories() {
           );
         })}
       </StoriesContainer>
-    </PageLayout>
+    </>
   );
 }

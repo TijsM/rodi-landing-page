@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const PageLayout = styled.div`
   margin-top: ${({ isSection }) => isSection && "76px"};
-  padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 24px" : "24px")};
   height: 100%;
+  padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 24px" : "24px")};
 
   @media only screen and (min-width: 768px) {
     padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 96px" : "96px")};
