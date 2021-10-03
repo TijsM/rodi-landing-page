@@ -4,8 +4,14 @@ export const StoriesContainer = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  margin-left: -24px;
+  padding: 0 24px;
 
+  @media only screen and (min-width: 768px) {
+    padding: 0 96px;
+  }
+  @media only screen and (min-width: 1600px) {
+    padding: 0px 124px;
+  }
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -32,7 +38,9 @@ export const StoryCard = styled.a`
   min-width: 320px;
   padding: 48px 24px;
   box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.08);
-  margin: 48px 24px;
+  margin: 48px;
+  margin-top: 24px;
+  margin-left: 0px;
   background-color: white;
   border: none;
   cursor: pointer;
