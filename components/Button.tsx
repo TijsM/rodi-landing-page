@@ -26,24 +26,24 @@ export default function Button({
       ? {
           mobile: {
             padding: "10px 20px",
-            borderRadius: "24px",
+            // borderRadius: "24px",
             fontSize: "18px",
           },
           desktop: {
             padding: "18px 36px",
-            borderRadius: "36px",
+            // borderRadius: "36px",
             fontSize: "24px",
           },
         }
       : {
           mobile: {
             padding: "8px 16px",
-            borderRadius: "16px",
+            // borderRadius: "16px",
             fontSize: "14px",
           },
           desktop: {
             padding: "14px 24px",
-            borderRadius: "24px",
+            // borderRadius: "24px",
             fontSize: "18px",
           },
         };
