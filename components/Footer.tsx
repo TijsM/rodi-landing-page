@@ -28,7 +28,7 @@ export default function Footer() {
     <>
       <PageLayout isSection>
         <Container>
-          <H3>get Rodi now.</H3>
+          <H3>Get Rodi now.</H3>
           <DownloadButtons>
             <Apple width={165} height={60} onClick={() => onClick("ios")} />
             <Play width={165} height={60} onClick={() => onClick("android")} />
