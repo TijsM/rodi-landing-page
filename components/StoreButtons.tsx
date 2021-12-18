@@ -12,6 +12,11 @@ interface StoreButtonsProps {
 
 export default function StoreButtons({ analyticsCategory }: StoreButtonsProps) {
   const onClick = (platform: "ios" | "android") => {
+    const androidUrl =
+      "https://play.google.com/store/apps/details?id=com.gpxtrackerrnapp";
+
+    const iosUrl = "https://apps.apple.com/us/app/rodi/id1570964762";
+
     logEvent({
       category: analyticsCategory,
       event: {
@@ -19,6 +24,9 @@ export default function StoreButtons({ analyticsCategory }: StoreButtonsProps) {
         name: `Download ${platform}`,
       },
     });
+
+    platform === "android" && window.open(androidUrl);
+    platform === "ios" && window.open(iosUrl);
   };
 
   return (
