@@ -53,17 +53,6 @@ export const ListIcon = styled.div`
   background-color: ${({ theme }) => theme.dark};
 `;
 
-export const DownloadButtons = styled.div`
-  margin-top: 12px;
-  display: flex;
-  flex-direction: "row";
-  flex-wrap: wrap;
-  gap: 12px;
-  @media only screen and (min-width: 768px) {
-    margin-top: 36px;
-  }
-`;
-
 export const MockupContainer = styled.div`
   position: relative;
   margin-top: 32px;

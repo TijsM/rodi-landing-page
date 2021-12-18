@@ -13,6 +13,7 @@ import {
   LearnMore,
   Highlight,
 } from "../styles/componentStyles/Header";
+import StoreButtons from "./StoreButtons";
 
 export default function Header() {
   const title = useRef(null);
@@ -37,17 +38,7 @@ export default function Header() {
             <Highlight>bike computer</Highlight> showing the route and
             statistics of your trip.
           </InfoText>
-          <Button
-            link="download"
-            trackingData={{
-              category: "header",
-              event: {
-                type: "click",
-                name: "Download",
-              },
-            }}
-            text="Download the app"
-          />
+          <StoreButtons analyticsCategory={"header"} />
         </Content>
       </PageLayout>
       <LearnMore>

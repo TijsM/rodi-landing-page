@@ -28,16 +28,16 @@ export default function Journey() {
   const [step, setStep] = useState<JourneyStep>("plan");
   const [showPopup, setShowPopup] = useState(false);
 
-  const explenation = useRef(null);
+  const explanation = useRef(null);
 
   const changeStep = (selected: JourneyStep) => {
     const tl = gsap.timeline();
-    tl.to(explenation.current, {
+    tl.to(explanation.current, {
       duration: 0.3,
       opacity: 0,
     });
     tl.call(setStep, [selected]);
-    tl.to(explenation.current, {
+    tl.to(explanation.current, {
       duration: 0.3,
       opacity: 1,
     });
@@ -142,7 +142,7 @@ export default function Journey() {
                 3. Share the adventure
               </Select>
             </SelectGroup>
-            <Explenation ref={explenation}>
+            <Explenation ref={explanation}>
               {step === "plan" && plan}
               {step === "enjoy" && enjoy}
               {step === "share" && share}
