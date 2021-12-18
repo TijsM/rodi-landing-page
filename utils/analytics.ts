@@ -3,6 +3,7 @@ import ReactGA from "react-ga";
 export type AnalyticsCategories =
   | "header"
   | "download section"
+  | "Sign up popup"
   | "footer section";
 
 export type AnalyticsTypes = "click" | "submit" | "focus";
