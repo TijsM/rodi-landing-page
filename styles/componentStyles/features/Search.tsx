@@ -9,36 +9,22 @@ export const Container = styled.article`
 
   padding: 24px;
 
-  @media only screen and (min-width: 768px) {
-    padding: 48px;
+
+  padding: 48px;
+  padding-bottom: 16px;
   }
   @media only screen and (min-width: 1500px) {
     padding: 96px;
+    padding-bottom: 24px;
+
   }
   @media only screen and (min-width: 2000px) {
     padding: 144px;
+    padding-bottom: 33px;
+
   }
 `;
 
-export const InputContainer = styled.div`
-  width: 100%;
-`;
-
-export const InputLabel = styled.p`
-  color: ${({ theme }) => theme.white};
-  opacity: 0.4;
-  font-size: 18px;
-`;
-
-export const InputText = styled.p`
-  color: ${({ theme }) => theme.white};
-  font-size: 24px;
-  margin-top: 4px;
-`;
-
-export const Divider = styled.div`
-  width: 100%;
-  height: 2px;
-  background-color: ${({ theme }) => theme.white};
-  margin-top: 8px;
+export const Results = styled.div`
+  overflow: hidden;
 `;
