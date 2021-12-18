@@ -52,7 +52,6 @@ const SubText = styled.span`
   @media only screen and (min-width: 1000px) {
     font-size: 20px;
   }
-
 `;
 
 export const StatUnit = styled(SubText)`
