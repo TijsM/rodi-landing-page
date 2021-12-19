@@ -13,14 +13,27 @@ export const TextContainer = styled.div``;
 
 export const Title = styled.p`
   color: ${({ theme }) => theme.white};
-  font-size: 24px;
   font-weight: 500;
+  font-size: 18px;
+  @media only screen and (min-width: 1500px) {
+    font-size: 22px;
+  }
+  @media only screen and (min-width: 2000px) {
+    font-size: 24px;
+  }
 `;
 
 export const Location = styled.p`
   color: ${({ theme }) => theme.white};
   font-size: 24px;
   font-weight: 300;
+  font-size: 18px;
+  @media only screen and (min-width: 1500px) {
+    font-size: 24px;
+  }
+  @media only screen and (min-width: 2000px) {
+    font-size: 28px;
+  }
 `;
 
 export const ImageContainer = styled.div`
