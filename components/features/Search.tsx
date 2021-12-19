@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import {
@@ -46,24 +46,70 @@ const SEARCH_RESULTS = [
   },
 ];
 
+const INPUTS = ["G", "Gh", "Ghe", "Ghen", "Ghent"];
+
 export function Search() {
-  return (
-    <Container>
-      <InputField />
-      <Results>
-        {SEARCH_RESULTS.map((res) => (
-          <SearchResult key={res.title} {...res} />
-        ))}
-      </Results>
-    </Container>
-  );
+  const [scroll, setScroll] = useState<number>();
+  const containerRef = useRef();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    handlePosition();
+  };
+
+  const handlePosition = () => {
+    // @ts-ignore
+    const { top, height } = containerRef?.current?.getBoundingClientRect();
+    const screenHeight = typeof window === "undefined" ? 0 : window.innerHeight;
+    const elementPos = screenHeight - top;
+    const stepSize = (screenHeight + height) / 10;
+    const index = elementPos / stepSize;
+
+    setScroll(index);
+  };
+
+  const getSearchContent = () => {
+    const contentIndex = Math.floor(scroll);
+
+    const input =
+      contentIndex >= INPUTS.length
+        ? INPUTS[INPUTS.length - 1]
+        : INPUTS[contentIndex];
+
+    return (
+      <>
+        <InputField text={input} />
+        {input === INPUTS[INPUTS.length - 1] ? (
+          <Results>
+            {SEARCH_RESULTS.map((res) => (
+              <SearchResult key={res.title} {...res} />
+            ))}
+          </Results>
+        ) : null}
+      </>
+    );
+  };
+
+  return <Container ref={containerRef}>{getSearchContent()}</Container>;
 }
 
-function InputField() {
+interface InputFieldProps {
+  text: string;
+}
+function InputField({ text }: InputFieldProps) {
   return (
     <InputContainer>
       <InputLabel>Where do you want to go?</InputLabel>
-      <InputText>Ghent</InputText>
+      <InputText>{text}</InputText>
       <Divider />
     </InputContainer>
   );

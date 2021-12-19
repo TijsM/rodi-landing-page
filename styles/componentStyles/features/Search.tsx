@@ -8,9 +8,6 @@ export const Container = styled.article`
   width: 100%;
 
   padding: 24px;
-
-
-  padding: 48px;
   padding-bottom: 16px;
   }
   @media only screen and (min-width: 1500px) {
