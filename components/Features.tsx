@@ -53,8 +53,7 @@ export default function Features({ startTime }: Props) {
     {
       title: "POI search",
       description:
-        "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
-      link: { url: "rodi.app/tracks", text: "test" },
+        "You haven’t planned a route? No problem, Rodi has your back. Search for any location and Rodi will create a bike-friendly route for you.",
       illustration: {
         type: "search",
         src: "/images/feature-map.png",

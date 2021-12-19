@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Loader from "react-spinners/SyncLoader";
 
 import {
   Container,
@@ -17,6 +18,7 @@ import {
   ResultContainer,
   TextContainer,
   ImageContainer,
+  SpinnerContainer,
 } from "../../styles/componentStyles/features/SearchResult";
 
 const SEARCH_RESULTS = [
@@ -94,7 +96,11 @@ export function Search() {
               <SearchResult key={res.title} {...res} />
             ))}
           </Results>
-        ) : null}
+        ) : (
+          <SpinnerContainer>
+            <Loader color={"white"} size={12} />
+          </SpinnerContainer>
+        )}
       </>
     );
   };

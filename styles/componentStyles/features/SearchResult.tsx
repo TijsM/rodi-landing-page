@@ -5,8 +5,12 @@ export const ResultContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 8px;
-  margin: 0px -8px;
+  padding: 8px 0px;
+  @media only screen and (min-width: 1500px) {
+    padding: 16px 8px;
+  }
+  @media only screen and (min-width: 2000px) {
+  }
 `;
 
 export const TextContainer = styled.div``;
@@ -14,7 +18,7 @@ export const TextContainer = styled.div``;
 export const Title = styled.p`
   color: ${({ theme }) => theme.white};
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   @media only screen and (min-width: 1500px) {
     font-size: 22px;
   }
@@ -27,7 +31,7 @@ export const Location = styled.p`
   color: ${({ theme }) => theme.white};
   font-size: 24px;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 16px;
   @media only screen and (min-width: 1500px) {
     font-size: 24px;
   }
@@ -49,4 +53,9 @@ export const ImageContainer = styled.div`
     width: ${({ width }) => width && width * 1.75 + "px"};
     height: ${({ height }) => height && height * 1.75 + "px"};
   }
+`;
+
+export const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
