@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import { getFormattedTime, getEllapsedTime } from "../helpers/Clock";
+import { getFormattedTime, getEllapsedTime } from "../../helpers/Clock";
 
 import {
-  Container,
   Stat,
   StatAmount,
   StatName,
   StatUnit,
   Row,
-} from "../styles/componentStyles/Statistics";
+  Container,
+} from "../../styles/componentStyles/Statistics";
 
 type Props = {
   startTime: Date;

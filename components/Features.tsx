@@ -4,7 +4,7 @@ import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import Statistics from "../components/Statistics";
+import Statistics from "./features/Statistics";
 import DownloadPopup from "../components/DownloadPopup";
 
 import { PageLayout } from "../styles/Layouts";
@@ -18,6 +18,7 @@ import {
 } from "../styles/componentStyles/Features";
 
 import { LinkButton } from "../styles/LinkButton";
+import { Search } from "./features/Search";
 
 type Props = {
   startTime: Date;
@@ -40,13 +41,21 @@ export default function Features({ startTime }: Props) {
   const features: Feature[] = [
     {
       title: "Course navigation",
-      // description:
-      //   "Have a favorite route? Or don't now the area? Upload a route to --link-- and don't miss a turn on your next ride.",
       description:
         "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
       link: { url: "rodi.app/tracks", text: "test" },
       illustration: {
         type: "image",
+        src: "/images/feature-map.png",
+        alt: "map example",
+      },
+    },
+    {
+      title: "POI search",
+      description:
+        "You haven’t planned a route? No problem, Rodi has your back. Search for any location and Rodi will create a bike-friendly route for you.",
+      illustration: {
+        type: "search",
         src: "/images/feature-map.png",
         alt: "map example",
       },
@@ -75,12 +84,12 @@ export default function Features({ startTime }: Props) {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    registerExplenationAnimation("#text0");
-    registerExplenationAnimation("#text1");
-    registerExplenationAnimation("#text2");
+    registerExplanationAnimation("#text0");
+    registerExplanationAnimation("#text1");
+    registerExplanationAnimation("#text2");
   }, []);
 
-  const registerExplenationAnimation = (id: string) => {
+  const registerExplanationAnimation = (id: string) => {
     gsap.from(id, {
       y: 150,
       duration: 4,
@@ -97,6 +106,8 @@ export default function Features({ startTime }: Props) {
   const renderIllustration = (illustration) => {
     if (illustration.type === "stats") {
       return <Statistics startTime={startTime} />;
+    } else if (illustration.type === "search") {
+      return <Search />;
     } else {
       return (
         <Image
@@ -136,13 +147,13 @@ export default function Features({ startTime }: Props) {
       <PageLayout id="features" isSection>
         <H2>This is how Rodi improves your next ride.</H2>
         {features.map((feature, i) => {
-          const leftAllign = !!(i % 2);
+          const leftAlign = !!(i % 2);
           return (
             <FeatureBlock key={i}>
-              <ImageContainer leftAlign={leftAllign}>
+              <ImageContainer leftAlign={leftAlign}>
                 {renderIllustration(feature.illustration)}
               </ImageContainer>
-              <TextContainer leftAlign={leftAllign} id={"text" + i}>
+              <TextContainer leftAlign={leftAlign} id={"text" + i}>
                 <H3>{feature.title}</H3>
                 {getTextWithLink(feature)}
               </TextContainer>
