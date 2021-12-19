@@ -65,7 +65,9 @@ export function Search() {
     const stepSize = (screenHeight + height) / 10;
     const index = elementPos / stepSize;
 
-    setScroll(index);
+    const indexSpedUp = index * 1.15;
+
+    setScroll(indexSpedUp);
   };
 
   const searchContent = useMemo(() => {

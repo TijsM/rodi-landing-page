@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { H2 as DefaultH2 } from "../Titles";
 
 export const FeatureBlock = styled.article`
-  margin: 48px 0px;
+  margin: 64px 0px;
   display: flex;
   flex-direction: column;
 

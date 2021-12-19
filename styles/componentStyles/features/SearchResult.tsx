@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const ResultContainer = styled.div`
+  /* will be set to 1 by gsap in js  */
+  opacity: 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
