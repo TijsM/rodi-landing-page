@@ -83,8 +83,8 @@ export function Search() {
         <SearchInput text={input} />
         {isLoaded ? (
           <Results>
-            {SEARCH_RESULTS.map((res) => (
-              <SearchResult key={res.title} {...res} />
+            {SEARCH_RESULTS.map((res, index) => (
+              <SearchResult key={res.title} index={index} {...res} />
             ))}
           </Results>
         ) : (
