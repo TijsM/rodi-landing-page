@@ -7,9 +7,10 @@ export const ResultContainer = styled.div`
   align-items: center;
   padding: 8px 0px;
   @media only screen and (min-width: 1500px) {
-    padding: 16px 8px;
+    padding: 16px 0px;
   }
   @media only screen and (min-width: 2000px) {
+    padding: 32px 0px;
   }
 `;
 
@@ -23,7 +24,7 @@ export const Title = styled.p`
     font-size: 22px;
   }
   @media only screen and (min-width: 2000px) {
-    font-size: 24px;
+    font-size: 32px;
   }
 `;
 
@@ -36,7 +37,7 @@ export const Location = styled.p`
     font-size: 24px;
   }
   @media only screen and (min-width: 2000px) {
-    font-size: 28px;
+    font-size: 32px;
   }
 `;
 

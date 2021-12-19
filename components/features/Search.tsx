@@ -1,25 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Loader from "react-spinners/SyncLoader";
 
+import SearchInput from "./SearchInput";
+import SearchResult from "./SearchResult";
+
+import { SpinnerContainer } from "../../styles/componentStyles/features/SearchResult";
 import {
   Container,
   Results,
 } from "../../styles/componentStyles/features/Search";
-import {
-  InputLabel,
-  InputContainer,
-  InputText,
-  Divider,
-} from "../../styles/componentStyles/features/Input";
-import {
-  Title,
-  Location,
-  ResultContainer,
-  TextContainer,
-  ImageContainer,
-  SpinnerContainer,
-} from "../../styles/componentStyles/features/SearchResult";
 
 const SEARCH_RESULTS = [
   {
@@ -79,7 +68,7 @@ export function Search() {
     setScroll(index);
   };
 
-  const getSearchContent = () => {
+  const searchContent = useMemo(() => {
     const contentIndex = Math.floor(scroll);
 
     const input =
@@ -87,10 +76,12 @@ export function Search() {
         ? INPUTS[INPUTS.length - 1]
         : INPUTS[contentIndex];
 
+    const isLoaded = input === INPUTS[INPUTS.length - 1];
+
     return (
       <>
-        <InputField text={input} />
-        {input === INPUTS[INPUTS.length - 1] ? (
+        <SearchInput text={input} />
+        {isLoaded ? (
           <Results>
             {SEARCH_RESULTS.map((res) => (
               <SearchResult key={res.title} {...res} />
@@ -103,43 +94,7 @@ export function Search() {
         )}
       </>
     );
-  };
+  }, [scroll]);
 
-  return <Container ref={containerRef}>{getSearchContent()}</Container>;
-}
-
-interface InputFieldProps {
-  text: string;
-}
-function InputField({ text }: InputFieldProps) {
-  return (
-    <InputContainer>
-      <InputLabel>Where do you want to go?</InputLabel>
-      <InputText>{text}</InputText>
-      <Divider />
-    </InputContainer>
-  );
-}
-
-interface SearchResultProps {
-  title: string;
-  location: string;
-}
-function SearchResult({ title, location }: SearchResultProps) {
-  return (
-    <ResultContainer>
-      <TextContainer>
-        <Title>{title}</Title>
-        <Location>{location}</Location>
-      </TextContainer>
-      <ImageContainer width={24} height={24}>
-        <Image
-          src="/images/chevron.png"
-          alt="strava logo"
-          layout="fill"
-          objectFit="contain"
-        />
-      </ImageContainer>
-    </ResultContainer>
-  );
+  return <Container ref={containerRef}>{searchContent}</Container>;
 }
