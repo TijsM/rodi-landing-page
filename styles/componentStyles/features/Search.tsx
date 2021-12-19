@@ -10,6 +10,9 @@ export const Container = styled.article`
   padding: 24px;
   padding-bottom: 16px;
   }
+  @media only screen and (min-width: 768px) {
+    padding: 48px;
+  }
   @media only screen and (min-width: 1500px) {
     padding: 96px;
     padding-bottom: 24px;
