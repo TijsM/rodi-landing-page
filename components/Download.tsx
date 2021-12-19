@@ -19,21 +19,7 @@ import {
 } from "../styles/componentStyles/Download";
 
 export default function Download() {
-  const [showPopup, setShowPopup] = useState(false);
-
   const listItems = ["No ads", "No subscriptions", "No data sharing"];
-
-  const onClick = (platform: "ios" | "android") => {
-    setShowPopup(true);
-
-    logEvent({
-      category: "download section",
-      event: {
-        type: "click",
-        name: `Download ${platform}`,
-      },
-    });
-  };
 
   return (
     <>

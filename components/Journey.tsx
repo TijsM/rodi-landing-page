@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 
-import DownloadPopup from "../components/DownloadPopup";
-
 import {
   Page,
   Container,
@@ -26,7 +24,6 @@ type JourneyStep = "plan" | "enjoy" | "share";
 
 export default function Journey() {
   const [step, setStep] = useState<JourneyStep>("plan");
-  const [showPopup, setShowPopup] = useState(false);
 
   const explanation = useRef(null);
 
@@ -59,8 +56,8 @@ export default function Journey() {
           </A>
         </Link>
         and upload them to{" "}
-        <LinkButton onClick={() => setShowPopup(true)}>
-          rodi.app/tracks
+        <LinkButton onClick={() => window.open("https://rodi.app/upload")}>
+          rodi.app/upload
         </LinkButton>
         .
       </TextBlock>
@@ -150,12 +147,6 @@ export default function Journey() {
           </Container>
         </PageLayout>
       </Page>
-      {showPopup && (
-        <DownloadPopup
-          onClose={() => setShowPopup(false)}
-          skipMessage="Naah, leave me alone..."
-        />
-      )}
     </>
   );
 }
