@@ -106,7 +106,7 @@ export default function SeoHeaders() {
       <title>Rodi - bike computer</title>
       <meta
         name="description"
-        content="Rodi is a free app which functions as a bike computer showing the route and statistics of your trip"
+        content="Rodi is a free app that functions as a bike computer showing the route and statistics of your trip"
       ></meta>
     </Head>
   );

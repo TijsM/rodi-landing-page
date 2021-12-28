@@ -24,7 +24,7 @@ export default function Header() {
       duration: 1,
       opacity: 0,
       y: 70,
-    })
+    });
   }, []);
 
   return (
@@ -32,8 +32,8 @@ export default function Header() {
       <PageLayout>
         <Content>
           <H1 ref={title}>Ready for your next adventure?</H1>
-          <InfoText >
-            Rodi is a <Highlight>free app</Highlight> which functions as a{" "}
+          <InfoText>
+            Rodi is a <Highlight>free app</Highlight> that functions as a{" "}
             <Highlight>bike computer</Highlight> showing the route and
             statistics of your trip.
           </InfoText>
