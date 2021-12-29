@@ -100,7 +100,7 @@ export default function Statistics({ startTime }: Props) {
           <StatAmount>{average}</StatAmount>
           <StatUnit>{"km/h"}</StatUnit>
         </Row>
-        <StatName>{"Avergage speed"}</StatName>
+        <StatName>{"Average speed"}</StatName>
       </Stat>
       <Stat>
         <Row>
