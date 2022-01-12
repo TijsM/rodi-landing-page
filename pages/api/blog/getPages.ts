@@ -15,7 +15,5 @@ export const getBlog = async () => {
 export default async function handler(req, res) {
   const pages = await getBlog();
 
-  pages;
-
   res.status(200).json(pages);
 }
