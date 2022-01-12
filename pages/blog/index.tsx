@@ -1,12 +1,12 @@
-import Header from "../components/blog/Header";
-import { getBlog } from "./api/blog/getPages";
-import BlogPosts from "../components/blog/BlogPosts";
-import Stories from "../components/Stories";
+import Header from "../../components/blog/Header";
+import { getBlog } from "../api/blog/getPages";
+import BlogPosts from "../../components/blog/BlogPosts";
+import Stories from "../../components/Stories";
 
 export default function Blog(props) {
   return (
     <>
-      <Header />
+      <Header title={"Learn how and why Rodi is built."} />
       <BlogPosts pages={props.pages} />
       <Stories wrap={true} />
     </>

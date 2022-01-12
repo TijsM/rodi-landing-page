@@ -19,3 +19,15 @@ export const Content = styled.div`
     width: 65%;
   }
 `;
+
+export const Intro = styled.p`
+  color: ${({ theme }) => theme.white};
+  font-size: 18px;
+
+  margin-top: 64px;
+  line-height: 125%;
+
+  @media only screen and (min-width: 1000px) {
+    font-size: 24px;
+  }
+`;
