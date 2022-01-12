@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.article`
-  /* margin: 24px 0px; */
-
-  @media only screen and (min-width: 768px) {
-    /* margin: 24px 0px; */
-  }
+  margin-bottom: 48px;
 `;
 
 export const Intro = styled.p`

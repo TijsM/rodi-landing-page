@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Intro } from "../../styles/componentStyles/Blog/BlogItem";
+import { Container } from "../../styles/componentStyles/Blog/BlogPosts";
 import { PageLayout } from "../../styles/Layouts";
 import { H2 } from "../../styles/Titles";
 import BlogItem from "./BlogItem";
@@ -12,6 +12,8 @@ export default function BlogPosts({ pages }: BlogPostsProps) {
     <Container>
       <PageLayout>
         <H2>Insights</H2>
+      </PageLayout>
+      <PageLayout ignoreVHeight>
         {pages &&
           pages?.map((page) => {
             return (
