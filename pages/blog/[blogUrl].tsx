@@ -1,8 +1,18 @@
 import { useMemo } from "react";
-import Header from "../../components/blog/Header";
-import { H2, H3, Paragraph } from "../../styles/componentStyles/Blog/BlogPage";
-import { PageLayout } from "../../styles/Layouts";
+
 import { getPage } from "../api/blog/[blogUrl]";
+
+import Header from "../../components/blog/Header";
+import ListItem from "../../components/blog/ListItem";
+import {
+  H2,
+  H3,
+  Paragraph,
+  StyledImage,
+  ImageContainer,
+} from "../../styles/componentStyles/Blog/BlogPage";
+import { PageLayout } from "../../styles/Layouts";
+import {} from "../../styles/componentStyles/Blog/ListItem";
 
 export default function Blog({ blog }) {
   const blogContent = useMemo(() => {
@@ -14,9 +24,18 @@ export default function Blog({ blog }) {
       } else if (block.type === "heading_2") {
         return <H3>{block.heading_2.text[0]?.plain_text}</H3>;
       } else if (block.type === "bulleted_list_item") {
-        return null;
+        return <ListItem block={block} />;
       } else if (block.type === "image") {
-        return null;
+        console.log(block.image.file.url);
+        return (
+          <ImageContainer>
+            <StyledImage
+              src={block.image.file.url}
+              layout="fill"
+              objectFit="contain"
+            />
+          </ImageContainer>
+        );
       }
 
       return null;

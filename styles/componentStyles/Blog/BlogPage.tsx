@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Image from "next/image";
+
 import { H2 as DefaultH2, H3 as DefaultH3 } from "../../Titles";
 
 export const Paragraph = styled.p`
@@ -21,9 +23,18 @@ export const H2 = styled(DefaultH2)`
   }
 `;
 export const H3 = styled(DefaultH3)`
-  padding-bottom: 16px;
+  padding-bottom: 24px;
 
   @media only screen and (min-width: 768px) {
     padding-bottom: 24px;
   }
+`;
+
+export const StyledImage = styled(Image)``;
+
+export const ImageContainer = styled.div`
+  width: 75vw;
+  height: 500px;
+  margin: 48px auto;
+  position: relative;
 `;
