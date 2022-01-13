@@ -18,7 +18,6 @@ interface StoriesProps {
 
 export default function Stories({ wrap }: StoriesProps) {
   const [stories, setStories] = useState<Story[]>([]);
-  console.log(wrap);
 
   useEffect(() => {
     const getData = async () => {

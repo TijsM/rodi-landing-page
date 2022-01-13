@@ -12,7 +12,6 @@ import {
   ImageContainer,
 } from "../../styles/componentStyles/Blog/BlogPage";
 import { PageLayout } from "../../styles/Layouts";
-import {} from "../../styles/componentStyles/Blog/ListItem";
 
 export default function Blog({ blog }) {
   const blogContent = useMemo(() => {
@@ -26,7 +25,6 @@ export default function Blog({ blog }) {
       } else if (block.type === "bulleted_list_item") {
         return <ListItem block={block} />;
       } else if (block.type === "image") {
-        console.log(block.image.file.url);
         return (
           <ImageContainer>
             <StyledImage
