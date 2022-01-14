@@ -22,7 +22,8 @@ export const InfoText = styled.div`
   font-weight: 400;
   line-height: 125%;
   padding: 24px 0 18px 0;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  margin-top: 24px;
 
   @media only screen and (min-width: 768px) {
     font-size: 24px;
@@ -46,3 +47,5 @@ export const LearnMore = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const AnimationContainer = styled.div``;

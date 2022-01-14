@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import { logEvent } from "../utils/analytics";
 
-import { Apple, Play } from "../components/storeButtons/Index";
-import DownloadPopup from "../components/DownloadPopup";
+import StoreButtons from "./StoreButtons";
 
 import { PageLayout } from "../styles/Layouts";
 import { H2 } from "../styles/Titles";
@@ -15,27 +14,12 @@ import {
   ListItem,
   ListItemText,
   ListIcon,
-  DownloadButtons,
   MockupContainer,
   Mockup,
 } from "../styles/componentStyles/Download";
 
 export default function Download() {
-  const [showPopup, setShowPopup] = useState(false);
-
   const listItems = ["No ads", "No subscriptions", "No data sharing"];
-
-  const onClick = (platform: "ios" | "android") => {
-    setShowPopup(true);
-
-    logEvent({
-      category: "download section",
-      event: {
-        type: "click",
-        name: `Download ${platform}`,
-      },
-    });
-  };
 
   return (
     <>
@@ -54,14 +38,7 @@ export default function Download() {
                 </ListItem>
               ))}
             </List>
-            <DownloadButtons>
-              <Apple width={165} height={60} onClick={() => onClick("ios")} />
-              <Play
-                width={165}
-                height={60}
-                onClick={() => onClick("android")}
-              />
-            </DownloadButtons>
+            <StoreButtons analyticsCategory="download section" />
           </Content>
           <MockupContainer>
             <Mockup
@@ -73,12 +50,6 @@ export default function Download() {
           </MockupContainer>
         </Container>
       </PageLayout>
-      {showPopup && (
-        <DownloadPopup
-          onClose={() => setShowPopup(false)}
-          skipMessage="Naah, leave me alone..."
-        />
-      )}
     </>
   );
 }

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Statistics from "./features/Statistics";
-import DownloadPopup from "../components/DownloadPopup";
 
 import { PageLayout } from "../styles/Layouts";
 import { H3 } from "../styles/Titles";
@@ -36,14 +35,12 @@ type Feature = {
 };
 
 export default function Features({ startTime }: Props) {
-  const [showPopup, setShowPopup] = useState(false);
-
   const features: Feature[] = [
     {
       title: "Course navigation",
       description:
         "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
-      link: { url: "rodi.app/tracks", text: "test" },
+      link: { url: "rodi.app/upload", text: "test" },
       illustration: {
         type: "image",
         src: "/images/feature-map.png",
@@ -132,7 +129,10 @@ export default function Features({ startTime }: Props) {
             return text;
           } else {
             return (
-              <LinkButton key={i} onClick={() => setShowPopup(true)}>
+              <LinkButton
+                key={i}
+                onClick={() => window.open("https://rodi.app/upload")}
+              >
                 {feature.link.url}
               </LinkButton>
             );
@@ -161,12 +161,6 @@ export default function Features({ startTime }: Props) {
           );
         })}
       </PageLayout>
-      {showPopup && (
-        <DownloadPopup
-          onClose={() => setShowPopup(false)}
-          skipMessage="Naah, leave me alone..."
-        />
-      )}
     </>
   );
 }

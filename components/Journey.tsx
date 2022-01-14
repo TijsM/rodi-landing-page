@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 
-import DownloadPopup from "../components/DownloadPopup";
-
 import {
   Page,
   Container,
@@ -26,18 +24,17 @@ type JourneyStep = "plan" | "enjoy" | "share";
 
 export default function Journey() {
   const [step, setStep] = useState<JourneyStep>("plan");
-  const [showPopup, setShowPopup] = useState(false);
 
-  const explenation = useRef(null);
+  const explanation = useRef(null);
 
   const changeStep = (selected: JourneyStep) => {
     const tl = gsap.timeline();
-    tl.to(explenation.current, {
+    tl.to(explanation.current, {
       duration: 0.3,
       opacity: 0,
     });
     tl.call(setStep, [selected]);
-    tl.to(explenation.current, {
+    tl.to(explanation.current, {
       duration: 0.3,
       opacity: 1,
     });
@@ -59,8 +56,8 @@ export default function Journey() {
           </A>
         </Link>
         and upload them to{" "}
-        <LinkButton onClick={() => setShowPopup(true)}>
-          rodi.app/tracks
+        <LinkButton onClick={() => window.open("https://rodi.app/upload")}>
+          rodi.app/upload
         </LinkButton>
         .
       </TextBlock>
@@ -142,7 +139,7 @@ export default function Journey() {
                 3. Share the adventure
               </Select>
             </SelectGroup>
-            <Explenation ref={explenation}>
+            <Explenation ref={explanation}>
               {step === "plan" && plan}
               {step === "enjoy" && enjoy}
               {step === "share" && share}
@@ -150,12 +147,6 @@ export default function Journey() {
           </Container>
         </PageLayout>
       </Page>
-      {showPopup && (
-        <DownloadPopup
-          onClose={() => setShowPopup(false)}
-          skipMessage="Naah, leave me alone..."
-        />
-      )}
     </>
   );
 }
