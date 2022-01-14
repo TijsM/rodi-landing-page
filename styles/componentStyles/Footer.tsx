@@ -1,25 +1,31 @@
 import styled from "styled-components";
 
-export const Container = styled.footer`
+export const Footer = styled.footer``;
+
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-justify-items: center;
+  justify-items: center;
   @media only screen and (min-width: 768px) {
     align-items: center;
     flex-direction: row;
   }
 `;
 
-export const DownloadButtons = styled.div`
-  margin-top: 24px;
+export const Links = styled.div`
   display: flex;
-  flex-direction: "row";
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+`;
 
-  @media only screen and (min-width: 768px) {
-    margin-top: 0px;
-    justify-content: flex-end;
-  }
+export const LinkGroup = styled.div`
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const A = styled.a`
+  color: ${({ theme }) => theme.dark};
+  font-size: 18px;
+  margin: 8px 0px;
 `;
