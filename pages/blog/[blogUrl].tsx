@@ -4,6 +4,8 @@ import { getPage } from "../api/blog/[blogUrl]";
 
 import Header from "../../components/blog/Header";
 import ListItem from "../../components/blog/ListItem";
+import Footer from "../../components/Footer";
+
 import {
   H2,
   H3,
@@ -44,6 +46,7 @@ export default function Blog({ blog }) {
     <>
       <Header title={blog.title} intro={blog.intro} />
       <PageLayout>{blogContent}</PageLayout>
+      <Footer />
     </>
   );
 }
