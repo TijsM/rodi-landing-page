@@ -12,7 +12,11 @@ import {
 
 import { Story } from "../pages/api/stories";
 
-export default function Stories() {
+interface StoriesProps {
+  wrap?: boolean;
+}
+
+export default function Stories({ wrap }: StoriesProps) {
   const [stories, setStories] = useState<Story[]>([]);
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export default function Stories() {
       <PageLayout>
         <H2>Learn more.</H2>
       </PageLayout>
-      <StoriesContainer>
+      <StoriesContainer wrap={wrap}>
         {stories.map((story) => {
           return (
             <Link href={"/story/" + story.id} key={story.id}>
