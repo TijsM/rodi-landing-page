@@ -9,7 +9,7 @@ const notion = new Client({
 export const getPage = async (url: string) => {
   const allPosts = await getBlog();
 
-  const blogId = allPosts.results.find(
+  const blogId = allPosts.find(
     (blog) => blog.properties.Url.rich_text[0].plain_text === url
   )?.id;
 

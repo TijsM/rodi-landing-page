@@ -19,6 +19,6 @@ export default function Blog(props) {
 export async function getServerSideProps(context) {
   const pages = await getBlog();
   return {
-    props: { pages: pages.results },
+    props: { pages },
   };
 }

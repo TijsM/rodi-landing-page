@@ -9,7 +9,11 @@ export const getBlog = async () => {
     database_id: process.env.notion_database_id,
   });
 
-  return response;
+  const published = response.results.filter((blogPost) => {
+    return blogPost.properties.Published.checkbox;
+  });
+
+  return published;
 };
 
 export default async function handler(req, res) {
