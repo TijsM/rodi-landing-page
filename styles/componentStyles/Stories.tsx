@@ -38,7 +38,7 @@ export const StoryCard = styled.a`
   width: 320px;
   min-width: 320px;
   padding: 48px 24px;
-  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.05);
   margin: 48px;
   margin-top: 24px;
   margin-left: 0px;

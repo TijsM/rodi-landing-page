@@ -7,6 +7,12 @@ export const A = styled.a`
 
 export const Content = styled.div`
   max-width: 65%;
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: 0.5s;
+  :hover {
+    box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.05);
+  }
 `;
 
 export const Intro = styled.p`
