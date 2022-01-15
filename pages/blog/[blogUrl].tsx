@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { CodeBlock, CopyBlock } from "react-code-blocks";
 
 import { getPage } from "../api/blog/[blogUrl]";
 
@@ -35,6 +36,13 @@ export default function Blog({ blog }) {
               objectFit="contain"
             />
           </ImageContainer>
+        );
+      } else if (block.type === "code") {
+        return (
+          <CodeBlock
+            text={block.code.text[0].plain_text}
+            language={block.code.language}
+          />
         );
       }
 
