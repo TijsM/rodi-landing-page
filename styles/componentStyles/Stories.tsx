@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StoriesContainer = styled.div<{ wrap: boolean }>`
+export const StoriesContainer = styled.div<{ wrapContent: boolean }>`
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  flex-wrap: ${({ wrap }) => wrap && "wrap"};
+  flex-wrap: ${({ wrapContent }) => (wrapContent ? "wrap" : "initial")};
   padding: 0 24px;
 
   @media only screen and (min-width: 768px) {

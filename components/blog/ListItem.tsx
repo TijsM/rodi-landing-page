@@ -7,7 +7,7 @@ import {
 
 export default function List({ block }) {
   return (
-    <Container>
+    <Container key={block.bulleted_list_item.text[0].plain_text}>
       <ListItemIndicator />
       <Li>{block.bulleted_list_item.text[0].plain_text}</Li>
     </Container>

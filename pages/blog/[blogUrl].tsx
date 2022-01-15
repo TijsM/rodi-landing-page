@@ -24,24 +24,28 @@ export default function Blog({ blog }) {
     return blog?.content?.map((block) => {
       if (block.type === "paragraph") {
         return (
-          <Paragraph>
+          <Paragraph key={block.id}>
             {block.paragraph.text.map((text) => {
               if (text.href) {
-                return <A href={text.href}>{text.text.content}</A>;
+                return (
+                  <A key={text.text.content} href={text.href}>
+                    {text.text.content}
+                  </A>
+                );
               }
               return text.text.content;
             })}
           </Paragraph>
         );
       } else if (block.type === "heading_1") {
-        return <H2>{block.heading_1.text[0]?.plain_text}</H2>;
+        return <H2 key={block.id}>{block.heading_1.text[0]?.plain_text}</H2>;
       } else if (block.type === "heading_2") {
-        return <H3>{block.heading_2.text[0]?.plain_text}</H3>;
+        return <H3 key={block.id}>{block.heading_2.text[0]?.plain_text}</H3>;
       } else if (block.type === "bulleted_list_item") {
-        return <ListItem block={block} />;
+        return <ListItem block={block} key={block.id} />;
       } else if (block.type === "image") {
         return (
-          <ImageContainer>
+          <ImageContainer key={block.id}>
             <StyledImage
               src={block.image.file.url}
               layout="fill"
@@ -52,6 +56,7 @@ export default function Blog({ blog }) {
       } else if (block.type === "code") {
         return (
           <CodeBlock
+            key={block.id}
             text={block.code.text[0].plain_text}
             language={block.code.language}
           />
