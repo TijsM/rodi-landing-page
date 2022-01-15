@@ -8,6 +8,7 @@ import ListItem from "../../components/blog/ListItem";
 import Footer from "../../components/Footer";
 
 import {
+  A,
   H2,
   H3,
   Paragraph,
@@ -20,7 +21,16 @@ export default function Blog({ blog }) {
   const blogContent = useMemo(() => {
     return blog?.content?.map((block) => {
       if (block.type === "paragraph") {
-        return <Paragraph>{block.paragraph.text[0]?.plain_text}</Paragraph>;
+        return (
+          <Paragraph>
+            {block.paragraph.text.map((text) => {
+              if (text.href) {
+                return <A href={text.href}>{text.text.content}</A>;
+              }
+              return text.text.content;
+            })}
+          </Paragraph>
+        );
       } else if (block.type === "heading_1") {
         return <H2>{block.heading_1.text[0]?.plain_text}</H2>;
       } else if (block.type === "heading_2") {

@@ -44,3 +44,7 @@ export const ImageContainer = styled.div`
   margin: 48px auto;
   position: relative;
 `;
+
+export const A = styled.a`
+  color: ${({ theme }) => theme.dark};
+`;
