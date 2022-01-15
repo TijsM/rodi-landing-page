@@ -14,8 +14,10 @@ import {
   ImageContainer,
 } from "../../styles/componentStyles/Blog/BlogPage";
 import { PageLayout } from "../../styles/Layouts";
+import { useLogPageView } from "../../utils/analytics";
 
 export default function Blog({ blog }) {
+  useLogPageView();
   const blogContent = useMemo(() => {
     return blog?.content?.map((block) => {
       if (block.type === "paragraph") {

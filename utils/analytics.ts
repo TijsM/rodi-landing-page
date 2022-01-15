@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ReactGA from "react-ga";
 
 export type AnalyticsCategories =
@@ -36,4 +37,11 @@ export const logException = (description = "", fatal = false) => {
   if (description && !isDev) {
     ReactGA.exception({ description, fatal });
   }
+};
+
+export const useLogPageView = () => {
+  useEffect(() => {
+    initGA();
+    logPageView();
+  }, []);
 };

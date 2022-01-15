@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { initGA, logPageView } from "../utils/analytics";
+import { useRef, useState } from "react";
+import { useLogPageView } from "../utils/analytics";
 
 import gsap from "gsap";
 
@@ -19,10 +19,7 @@ export default function Home() {
   const tempRef = useRef(null);
   const [user, setUser] = useState<any>();
 
-  useEffect(() => {
-    initGA();
-    logPageView();
-  }, []);
+  useLogPageView();
 
   const steps: UploadStep[] = ["intro", "login", "upload", "done"];
 

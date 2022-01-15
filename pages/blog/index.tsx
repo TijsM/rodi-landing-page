@@ -4,8 +4,11 @@ import Header from "../../components/blog/Header";
 import BlogPosts from "../../components/blog/BlogPosts";
 import Stories from "../../components/Stories";
 import Footer from "../../components/Footer";
+import { useLogPageView } from "../../utils/analytics";
 
 export default function Blog(props) {
+  useLogPageView();
+
   return (
     <>
       <Header title={"Learn how and why Rodi is built."} />
@@ -16,7 +19,7 @@ export default function Blog(props) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const pages = await getBlog();
   return {
     props: { pages },

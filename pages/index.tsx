@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { initGA, logPageView } from "../utils/analytics";
+import { useLogPageView } from "../utils/analytics";
 import useStravaAuth from "../hooks/useStravaAuth";
 
 import Headers from "../components/SeoHeaders";
@@ -19,11 +19,7 @@ import { ScreenWidth } from "../styles/Layouts";
 export default function Home() {
   const [startTime, setStartTime] = useState<Date | undefined>();
   useStravaAuth();
-
-  useEffect(() => {
-    initGA();
-    logPageView();
-  }, []);
+  useLogPageView();
 
   useEffect(() => {
     setStartTime(new Date());
