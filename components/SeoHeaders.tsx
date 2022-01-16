@@ -1,7 +1,11 @@
 import React from "react";
 import Head from "next/head";
 
-export default function SeoHeaders() {
+interface SeoHeadersProps {
+  description: string;
+}
+
+export default function SeoHeaders({ description }: SeoHeadersProps) {
   const jsonLd = (
     <script
       type="application/ld+json"
@@ -104,10 +108,7 @@ export default function SeoHeaders() {
       {jsonLd}
       {icons}
       <title>Rodi - bike computer</title>
-      <meta
-        name="description"
-        content="Rodi is a free app that functions as a bike computer showing the route and statistics of your trip"
-      ></meta>
+      <meta name="description" content={description}></meta>
     </Head>
   );
 }

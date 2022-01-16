@@ -17,6 +17,7 @@ import {
 } from "../../styles/componentStyles/Blog/BlogPage";
 import { PageLayout } from "../../styles/Layouts";
 import { useLogPageView } from "../../utils/analytics";
+import SeoHeaders from "../../components/SeoHeaders";
 
 export default function Blog({ blog }) {
   useLogPageView();
@@ -71,6 +72,7 @@ export default function Blog({ blog }) {
 
   return (
     <>
+      <SeoHeaders description={blog.intro} />
       <Header title={blog.title} intro={blog.intro} />
       <PageLayout>{blogContent}</PageLayout>
       <Footer />

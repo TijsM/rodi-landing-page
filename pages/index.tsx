@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useLogPageView } from "../utils/analytics";
 import useStravaAuth from "../hooks/useStravaAuth";
 
-import Headers from "../components/SeoHeaders";
+import SeoHeaders from "../components/SeoHeaders";
 
 import IntroOverlay from "../components/IntroOverlay";
 import Header from "../components/Header";
@@ -27,7 +27,11 @@ export default function Home() {
 
   return (
     <>
-      <Headers />
+      <SeoHeaders
+        description={
+          "Rodi is a free app that functions as a bike computer showing the route and statistics of your trip"
+        }
+      />
       <ScreenWidth>
         <IntroOverlay />
         <Header />
