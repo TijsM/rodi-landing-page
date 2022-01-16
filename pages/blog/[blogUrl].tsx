@@ -8,11 +8,11 @@ import ListItem from "../../components/blog/ListItem";
 import Footer from "../../components/Footer";
 
 import {
-  A,
   H2,
   H3,
   StyledImage,
   ImageContainer,
+  H4,
 } from "../../styles/componentStyles/Blog/BlogPage";
 import { PageLayout } from "../../styles/Layouts";
 import { useLogPageView } from "../../utils/analytics";
@@ -30,6 +30,8 @@ export default function Blog({ blog }) {
           return <H2 key={block.id}>{block.heading_1.text[0]?.plain_text}</H2>;
         case "heading_2":
           return <H3 key={block.id}>{block.heading_2.text[0]?.plain_text}</H3>;
+        case "heading_3":
+          return <H4 key={block.id}>{block.heading_3.text[0]?.plain_text}</H4>;
         case "bulleted_list_item":
           return <ListItem block={block} key={block.id} />;
         case "image":

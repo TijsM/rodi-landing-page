@@ -22,6 +22,16 @@ export const H3 = styled(DefaultH3)`
     font-size: 32px;
   }
 `;
+export const H4 = styled(DefaultH3)`
+  font-size: 20px;
+  padding-bottom: 12px;
+  margin-top: 16px;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 32px;
+    font-size: 24px;
+  }
+`;
 
 export const StyledImage = styled(Image)``;
 
