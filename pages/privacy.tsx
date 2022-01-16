@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { initGA } from "../utils/analytics";
-
-import Headers from "../components/SeoHeaders";
+import SeoHeaders from "../components/SeoHeaders";
 
 import { ScreenWidth } from "../styles/Layouts";
 import {
@@ -18,7 +15,7 @@ import {
 export default function Home() {
   return (
     <>
-      <Headers />
+      <SeoHeaders description="Privacy policy of Rodi app" />
       <ScreenWidth>
         <Section>
           <Article>
