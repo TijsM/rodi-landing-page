@@ -1,12 +1,21 @@
-import Headers from "../components/SeoHeaders";
+import SeoHeaders from "../components/SeoHeaders";
 
 import { ScreenWidth } from "../styles/Layouts";
-import { Article, Section, Header, H1, P, Strong, A, Li } from "../styles/Legal";
+import {
+  Article,
+  Section,
+  Header,
+  H1,
+  P,
+  Strong,
+  A,
+  Li,
+} from "../styles/Legal";
 
 export default function Home() {
   return (
     <>
-      <Headers />
+      <SeoHeaders description="Terms and conditions of Rodi app" />
       <ScreenWidth>
         <Section>
           <Article id="2b172480-f416-4b5e-b8c7-86d6c446ffc5">

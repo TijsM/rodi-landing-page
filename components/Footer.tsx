@@ -24,7 +24,7 @@ export default function Footer() {
           <Links>
             <LinkGroup>
               <Link href="/blog" passHref={true}>
-                <A target="_blank">Learn how and why Rodi is built.</A>
+                <A target="_blank">Learn how and why Rodi is built</A>
               </Link>
               <Link href="/upload" passHref={true}>
                 <A target="_blank">Upload a route</A>
@@ -39,6 +39,14 @@ export default function Footer() {
                 passHref={true}
               >
                 <A target="_blank">LinkedIn</A>
+              </Link>
+            </LinkGroup>
+            <LinkGroup>
+              <Link href="/terms" passHref={true}>
+                <A target="_blank">Terms and conditions</A>
+              </Link>
+              <Link href="/privacy" passHref={true}>
+                <A target="_blank">Privacy policy</A>
               </Link>
             </LinkGroup>
           </Links>

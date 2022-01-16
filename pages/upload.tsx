@@ -11,6 +11,7 @@ import Done from "../components/upload/Done";
 
 import { ScreenWidth } from "../styles/Layouts";
 import { Section } from "../styles/Upload";
+import SeoHeaders from "../components/SeoHeaders";
 
 type UploadStep = "intro" | "login" | "upload" | "done";
 
@@ -64,7 +65,7 @@ export default function Home() {
 
   return (
     <>
-      <Headers />
+      <SeoHeaders description="Upload routes to rodi, our free to use mobile cycling app." />
       <ScreenWidth>
         <Section>
           <div ref={tempRef}>
