@@ -11,13 +11,13 @@ import {
   A,
   H2,
   H3,
-  Paragraph,
   StyledImage,
   ImageContainer,
 } from "../../styles/componentStyles/Blog/BlogPage";
 import { PageLayout } from "../../styles/Layouts";
 import { useLogPageView } from "../../utils/analytics";
 import SeoHeaders from "../../components/SeoHeaders";
+import Paragraph from "../../components/blog/Paragraph";
 
 export default function Blog({ blog }) {
   useLogPageView();
@@ -25,21 +25,7 @@ export default function Blog({ blog }) {
     return blog?.content?.map((block) => {
       switch (block.type) {
         case "paragraph":
-          return (
-            <Paragraph key={block.id}>
-              {block.paragraph.text.map((text) => {
-                if (text.href) {
-                  return (
-                    <A key={text.text.content} href={text.href}>
-                      {text.text.content}
-                    </A>
-                  );
-                }
-                return text.text.content;
-              })}
-            </Paragraph>
-          );
-
+          return <Paragraph block={block} />;
         case "heading_1":
           return <H2 key={block.id}>{block.heading_1.text[0]?.plain_text}</H2>;
         case "heading_2":
