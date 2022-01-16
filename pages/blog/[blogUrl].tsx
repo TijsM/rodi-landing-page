@@ -25,7 +25,7 @@ export default function Blog({ blog }) {
     return blog?.content?.map((block) => {
       switch (block.type) {
         case "paragraph":
-          return <Paragraph block={block} />;
+          return <Paragraph block={block} key={block.id} />;
         case "heading_1":
           return <H2 key={block.id}>{block.heading_1.text[0]?.plain_text}</H2>;
         case "heading_2":
