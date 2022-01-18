@@ -26,7 +26,7 @@ export default function Blog(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const pages = await getBlog();
   return {
     props: { pages },
