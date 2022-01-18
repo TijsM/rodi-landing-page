@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { CodeBlock, CopyBlock } from "react-code-blocks";
+import { CodeBlock } from "react-code-blocks";
 
 import { getPage } from "../api/blog/[blogUrl]";
 
@@ -18,6 +18,7 @@ import { PageLayout } from "../../styles/Layouts";
 import { useLogPageView } from "../../utils/analytics";
 import SeoHeaders from "../../components/SeoHeaders";
 import Paragraph from "../../components/blog/Paragraph";
+import { getBlog } from "../api/blog/getPages";
 
 export default function Blog({ blog }) {
   useLogPageView();
@@ -68,9 +69,23 @@ export default function Blog({ blog }) {
   );
 }
 
-export async function getServerSideProps({ query }) {
-  const blog = await getPage(query.blogUrl);
+export async function getStaticProps({ params }) {
+  const blog = await getPage(params.blogUrl);
+
   return {
     props: { blog },
+    revalidate: 10,
   };
+}
+
+export async function getStaticPaths() {
+  const pages = await getBlog();
+
+  const paths = pages.map((blog) => {
+    return {
+      params: { blogUrl: blog.properties.Url.rich_text[0].plain_text },
+    };
+  });
+
+  return { paths, fallback: "blocking" };
 }
