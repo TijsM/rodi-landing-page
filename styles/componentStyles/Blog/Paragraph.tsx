@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const P = styled.div`
+export const P = styled.p`
   color: ${({ theme }) => theme.dark};
   padding-bottom: 16px;
   font-size: 20px;
@@ -17,7 +17,7 @@ export const A = styled.a`
   color: ${({ theme }) => theme.dark};
 `;
 
-export const RichText = styled.p<{
+export const RichText = styled.span<{
   isBold: boolean;
   isUnderlined: boolean;
   isItalic: boolean;
