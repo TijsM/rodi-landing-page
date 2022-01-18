@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { CodeBlock } from "react-code-blocks";
+import { CodeBlock, a11yLight } from "react-code-blocks";
 
 import { getPage } from "../api/blog/[blogUrl]";
 
@@ -51,6 +51,7 @@ export default function Blog({ blog }) {
               key={block.id}
               text={block.code.text[0].plain_text}
               language={block.code.language}
+              theme={a11yLight}
             />
           );
         default:
