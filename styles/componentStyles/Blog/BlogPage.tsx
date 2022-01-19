@@ -36,7 +36,6 @@ export const H4 = styled(DefaultH3)`
 export const StyledImage = styled(Image)``;
 
 export const ImageContainer = styled.div`
-  width: 75vw;
   height: 500px;
   margin: 48px auto;
   position: relative;
