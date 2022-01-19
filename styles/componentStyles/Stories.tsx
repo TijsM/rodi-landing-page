@@ -6,6 +6,8 @@ export const StoriesContainer = styled.div<{ wrapContent: boolean }>`
   overflow-x: scroll;
   flex-wrap: ${({ wrapContent }) => (wrapContent ? "wrap" : "initial")};
   padding: 0 24px;
+  max-width: 2000px;
+  margin: auto;
 
   @media only screen and (min-width: 768px) {
     padding: 0 96px;
@@ -38,13 +40,18 @@ export const StoryCard = styled.a`
   width: 320px;
   min-width: 320px;
   padding: 48px 24px;
-  box-shadow: 0px 4px 24px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 16px 8px rgba(0, 0, 0, 0.03);
   margin: 48px;
   margin-top: 24px;
   margin-left: 0px;
   background-color: white;
   border: none;
   cursor: pointer;
+  transition: 0.5s;
+
+  :hover {
+    box-shadow: 0px 4px 32px 8px #13172d29;
+  }
 `;
 
 export const H4 = styled.h4`
