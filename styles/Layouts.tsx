@@ -6,7 +6,7 @@ export const PageLayout = styled.div`
   padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 24px" : "24px")};
 
   max-width: 2000px;
-  margin: auto;
+  /* margin: auto; */
 
   @media only screen and (min-width: 768px) {
     padding: ${({ ignoreVHeight }) => (ignoreVHeight ? "0px 96px" : "96px")};

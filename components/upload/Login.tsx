@@ -7,7 +7,6 @@ import {
   Article,
   Description,
   ButtonContainer,
-  Input,
   InputContainer,
   H1,
   ErrorText,
@@ -16,6 +15,7 @@ import {
 import { UploadPageProps } from "../../types/UploadTypes";
 
 import { backendUrl } from "../../constants/api";
+import Input from "../Input";
 
 export default function Login({ next, setUser }: UploadPageProps) {
   const [email, setEmail] = useState("");
@@ -64,14 +64,17 @@ export default function Login({ next, setUser }: UploadPageProps) {
 
       <InputContainer>
         <Input
-          placeholder="Email"
+          label="Email"
+          value={email}
+          placeholder="rodi@app.com"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           onKeyPress={handleKeyPress}
         />
         <Input
+          label="Password"
           value={password}
-          placeholder="Password"
+          placeholder="*******"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           onKeyPress={handleKeyPress}

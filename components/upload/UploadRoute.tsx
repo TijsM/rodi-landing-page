@@ -8,7 +8,6 @@ import {
   Description,
   ButtonContainer,
   H1,
-  Input,
   InputContainer,
   FileInput,
   ErrorText,
@@ -17,6 +16,7 @@ import {
 import { UploadPageProps } from "../../types/UploadTypes";
 
 import { backendUrl } from "../../constants/api";
+import Input from "../Input";
 
 type File = {
   lastModified: number;
@@ -36,11 +36,10 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
   const fileIsGpx =
     route?.name?.split(".")[route?.name?.split(".")?.length - 1] === "gpx";
 
-
   const upload = async () => {
     setLoading(true);
     const formData = new FormData();
-    formData.append("gpx", (route as unknown) as Blob);
+    formData.append("gpx", route as unknown as Blob);
     formData.append("trackName", routeName);
 
     const res: any = await fetch(backendUrl + "/uploadRoute", {
@@ -69,8 +68,11 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
       </Description>
       <InputContainer>
         <Input
-          placeholder="Route name"
+          label="Route-name"
+          placeholder="Stage 1 - Tour de France"
           onChange={(e) => setRouteName(e.target.value)}
+          value={routeName}
+          type="text"
         />
         <FileInput
           type="file"
@@ -84,7 +86,7 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
           <Loader color={"white"} size={24} />
         ) : (
           <Button
-          disabled={!allFieldsFilledIn ||  !fileIsGpx}
+            disabled={!allFieldsFilledIn || !fileIsGpx}
             text="Upload"
             onClick={() => {
               upload();
