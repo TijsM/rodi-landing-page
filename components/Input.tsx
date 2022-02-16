@@ -7,6 +7,7 @@ interface InputProps {
   label: string;
   placeholder: string;
   type: string;
+  required?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
@@ -18,10 +19,14 @@ export default function Input({
   onChange,
   onKeyPress,
   label,
+  required,
 }: InputProps) {
   return (
     <Container>
-      <Label>{label}:</Label>
+      <Label>
+        {label}
+        {required ? " * " : ""}:
+      </Label>
       <StyledInput
         value={value}
         placeholder={placeholder}

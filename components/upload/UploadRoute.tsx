@@ -73,6 +73,7 @@ export default function UploadRoute({ next, user }: UploadPageProps) {
           onChange={(e) => setRouteName(e.target.value)}
           value={routeName}
           type="text"
+          required
         />
         <FileInput
           type="file"

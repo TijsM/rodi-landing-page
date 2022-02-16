@@ -70,6 +70,7 @@ export default function Login({ next, setUser }: UploadPageProps) {
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           onKeyPress={handleKeyPress}
+          required
         />
         <Input
           label="Password"
@@ -78,6 +79,7 @@ export default function Login({ next, setUser }: UploadPageProps) {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           onKeyPress={handleKeyPress}
+          required
         />
       </InputContainer>
       {error && <ErrorText>{error}</ErrorText>}
