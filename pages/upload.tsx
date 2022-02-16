@@ -10,7 +10,7 @@ import UploadRoute from "../components/upload/UploadRoute";
 import Done from "../components/upload/Done";
 
 import { ScreenWidth } from "../styles/Layouts";
-import { Section } from "../styles/Upload";
+import { Section, Layout } from "../styles/Upload";
 import SeoHeaders from "../components/SeoHeaders";
 
 type UploadStep = "intro" | "login" | "upload" | "done";
@@ -68,16 +68,18 @@ export default function Home() {
       <SeoHeaders description="Upload routes to rodi, our free to use mobile cycling app." />
       <ScreenWidth>
         <Section>
-          <div ref={tempRef}>
-            {step === "intro" && <Intro next={() => next()} />}
-            {step === "login" && (
-              <Login next={() => next()} setUser={setUser} />
-            )}
-            {step === "upload" && (
-              <UploadRoute next={() => next()} user={user} />
-            )}
-            {step === "done" && <Done next={() => next()} />}
-          </div>
+          <Layout>
+            <div ref={tempRef}>
+              {step === "intro" && <Intro next={() => next()} />}
+              {step === "login" && (
+                <Login next={() => next()} setUser={setUser} />
+              )}
+              {step === "upload" && (
+                <UploadRoute next={() => next()} user={user} />
+              )}
+              {step === "done" && <Done next={() => next()} />}
+            </div>
+          </Layout>
         </Section>
       </ScreenWidth>
     </>

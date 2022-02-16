@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Loader from "react-spinners/SyncLoader";
 
 import Button from "../Button";
+import Input from "../Input";
 
 import {
   Article,
   Description,
   ButtonContainer,
-  Input,
   InputContainer,
   H1,
   ErrorText,
@@ -64,17 +64,22 @@ export default function Login({ next, setUser }: UploadPageProps) {
 
       <InputContainer>
         <Input
-          placeholder="Email"
+          label="Email"
+          value={email}
+          placeholder="rodi@app.com"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           onKeyPress={handleKeyPress}
+          required
         />
         <Input
+          label="Password"
           value={password}
-          placeholder="Password"
+          placeholder="*******"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           onKeyPress={handleKeyPress}
+          required
         />
       </InputContainer>
       {error && <ErrorText>{error}</ErrorText>}
