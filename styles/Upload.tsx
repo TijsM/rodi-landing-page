@@ -22,8 +22,8 @@ export const Layout = styled(PageLayout)`
 
 export const Section = styled.section`
   background-color: ${({ theme }) => theme.dark};
-  margin: auto;
   display: flex;
+  flex-shrink: 1;
 `;
 
 export const Article = styled.article`

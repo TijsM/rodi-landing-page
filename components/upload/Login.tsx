@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Loader from "react-spinners/SyncLoader";
 
 import Button from "../Button";
+import Input from "../Input";
 
 import {
   Article,
@@ -15,7 +16,6 @@ import {
 import { UploadPageProps } from "../../types/UploadTypes";
 
 import { backendUrl } from "../../constants/api";
-import Input from "../Input";
 
 export default function Login({ next, setUser }: UploadPageProps) {
   const [email, setEmail] = useState("");
