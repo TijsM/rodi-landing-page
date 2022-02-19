@@ -1,5 +1,6 @@
+import { link } from "fs";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Download from "../components/Download";
 import Features from "../components/Features";
 
@@ -14,6 +15,8 @@ export default function Open() {
   const [startTime, setStartTime] = useState<Date | undefined>();
   useLogPageView();
 
+  const linkRef = useRef();
+
   useEffect(() => {
     setStartTime(new Date());
   }, []);
@@ -21,6 +24,13 @@ export default function Open() {
   useEffect(() => {
     router.push("rodi://openCoordinate/?lat=51.0543422&lon=3.7174243");
   }, [router.query]);
+
+  useEffect(() => {
+    if (linkRef.current) {
+      //@ts-ignore
+      console.log(linkRef.current?.click());
+    }
+  }, [linkRef]);
 
   return (
     <>
@@ -30,7 +40,10 @@ export default function Open() {
         }
       />
 
-      <a href="rodi://openCoordinate/?lat=51.0543422&lon=3.7174243">
+      <a
+        href="rodi://openCoordinate/?lat=51.0543422&lon=3.7174243"
+        ref={linkRef}
+      >
         My Facebook Group
       </a>
 
