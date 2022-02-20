@@ -5,7 +5,7 @@ import Download from "../components/Download";
 import Features from "../components/Features";
 
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import OpenDeepLink from "../components/OpenDeepLink";
 import SeoHeaders from "../components/SeoHeaders";
 import { PageLayout } from "../styles/Layouts";
 import { useLogPageView } from "../utils/analytics";
@@ -15,14 +15,11 @@ export default function Open() {
   const [startTime, setStartTime] = useState<Date | undefined>();
   useLogPageView();
 
-  const linkRef = useRef();
-
   useEffect(() => {
     setStartTime(new Date());
   }, []);
 
   useEffect(() => {
-    location.href = "rodi://openCoordinate/?lat=51.0543422&lon=3.7174243";
     router.push("rodi://openCoordinate/?lat=51.0543422&lon=3.7174243");
   }, [router.query]);
 
@@ -33,14 +30,8 @@ export default function Open() {
           "Download Rodi on iOS. Rodi is a free app that gives you more insights in your bike rides"
         }
       />
+      <OpenDeepLink />
 
-      <Header />
-
-      <a href="rodi://openCoordinate/?lat=51.0543422&lon=3.7174243">
-        open rodi app
-      </a>
-
-      <Download />
       <Features startTime={startTime} />
 
       <PageLayout></PageLayout>

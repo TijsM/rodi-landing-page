@@ -5,7 +5,8 @@ export type AnalyticsCategories =
   | "header"
   | "download section"
   | "Sign up popup"
-  | "footer section";
+  | "footer section"
+  | "open deeplink page";
 
 export type AnalyticsTypes = "click" | "submit" | "focus";
 
