@@ -36,6 +36,10 @@ export default function Open() {
 
       <Header />
 
+      <a href="rodi://openCoordinate/?lat=51.0543422&lon=3.7174243">
+        open rodi app
+      </a>
+
       <Download />
       <Features startTime={startTime} />
 
