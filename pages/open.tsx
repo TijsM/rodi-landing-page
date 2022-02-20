@@ -1,7 +1,6 @@
-import { link } from "fs";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useRef, useState } from "react";
-import Download from "../components/Download";
+import { useEffect, useState } from "react";
+
 import Features from "../components/Features";
 
 import Footer from "../components/Footer";
@@ -20,11 +19,14 @@ export default function Open() {
   }, []);
 
   const openDeepLink = () => {
-    console.log("sike");
-    router.push("rodi://openCoordinate/?lat=51.0543422&lon=3.7174243");
+    if (router.query.lat && router.query.lon) {
+      router.push(
+        `rodi://openCoordinate/?lat=${router.query.lat}&lon=${router.query.lon}`
+      );
+    }
   };
 
-  useEffect(openDeepLink, [router.query]);
+  useEffect(openDeepLink, [router.query, router.query]);
 
   return (
     <>
