@@ -4,7 +4,7 @@ import {
   Content,
   Title,
   SubTitle,
-  Button,
+  A,
   ButtonText,
   ImageContainer,
   OpenArticle,
@@ -14,24 +14,28 @@ import {
 import { PageLayout } from "../styles/Layouts";
 import StoreButtons from "./StoreButtons";
 
-export default function OpenDeepLink() {
+interface OpenDeepLinkProps {
+  onClick: () => void;
+}
+
+export default function OpenDeepLink({ onClick }: OpenDeepLinkProps) {
   return (
     <PageLayout>
       <Content>
         <OpenArticle>
           <Title>Oops, it looks like Rodi did not open.</Title>
           <SubTitle>Click the button below to open the app.</SubTitle>
-          <Button>
-            <ButtonText>Open in Rodi</ButtonText>
+          <A onClick={onClick}>
             <ImageContainer>
               <Image
-                src="/images/location.png"
+                src="/images/icon-rodi.png"
                 alt="Rodi location icon"
-                width={75}
-                height={75}
+                width={50}
+                height={50}
               />
             </ImageContainer>
-          </Button>
+            <ButtonText>Open in Rodi</ButtonText>
+          </A>
         </OpenArticle>
         <DonwloadArticle>
           <SubTitle>

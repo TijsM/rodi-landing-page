@@ -18,26 +18,26 @@ export const SubTitle = styled(DefaultH3)`
   font-weight: 400;
 `;
 
-export const Button = styled.button`
-  background-color: ${({ theme }) => theme.dark};
-  padding: 12px 24px;
+export const A = styled.button`
+  background-color: ${({ theme }) => theme.white};
+  padding: 24px;
   border: none;
   cursor: pointer;
   margin: 48px 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  box-shadow: 0px 4px 16px 8px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
 `;
 
 export const ButtonText = styled.p`
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.dark};
   font-size: 32px;
-  padding-right: 12px;
+  padding-left: 12px;
 `;
 
-export const ImageContainer = styled.div`
-  transform: rotate(90deg);
-`;
+export const ImageContainer = styled.div``;
 
 export const OpenArticle = styled.article``;
 

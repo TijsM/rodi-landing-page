@@ -1,6 +1,6 @@
 import { link } from "fs";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Download from "../components/Download";
 import Features from "../components/Features";
 
@@ -19,9 +19,12 @@ export default function Open() {
     setStartTime(new Date());
   }, []);
 
-  useEffect(() => {
+  const openDeepLink = () => {
+    console.log("sike");
     router.push("rodi://openCoordinate/?lat=51.0543422&lon=3.7174243");
-  }, [router.query]);
+  };
+
+  useEffect(openDeepLink, [router.query]);
 
   return (
     <>
@@ -30,7 +33,7 @@ export default function Open() {
           "Download Rodi on iOS. Rodi is a free app that gives you more insights in your bike rides"
         }
       />
-      <OpenDeepLink />
+      <OpenDeepLink onClick={openDeepLink} />
 
       <Features startTime={startTime} />
 
