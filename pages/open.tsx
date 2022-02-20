@@ -22,15 +22,9 @@ export default function Open() {
   }, []);
 
   useEffect(() => {
+    location.href = "rodi://openCoordinate/?lat=51.0543422&lon=3.7174243";
     router.push("rodi://openCoordinate/?lat=51.0543422&lon=3.7174243");
   }, [router.query]);
-
-  useEffect(() => {
-    if (linkRef.current) {
-      //@ts-ignore
-      console.log(linkRef.current?.click());
-    }
-  }, [linkRef]);
 
   return (
     <>
@@ -39,13 +33,6 @@ export default function Open() {
           "Download Rodi on iOS. Rodi is a free app that gives you more insights in your bike rides"
         }
       />
-
-      <a
-        href="rodi://openCoordinate/?lat=51.0543422&lon=3.7174243"
-        ref={linkRef}
-      >
-        My Facebook Group
-      </a>
 
       <Header />
 
