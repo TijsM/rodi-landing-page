@@ -6,7 +6,6 @@ import Features from "../components/Features";
 import Footer from "../components/Footer";
 import OpenDeepLink from "../components/OpenDeepLink";
 import SeoHeaders from "../components/SeoHeaders";
-import { PageLayout } from "../styles/Layouts";
 import { useLogPageView } from "../utils/analytics";
 
 export default function Open() {
@@ -36,10 +35,7 @@ export default function Open() {
         }
       />
       <OpenDeepLink onClick={openDeepLink} />
-
       <Features startTime={startTime} />
-
-      <PageLayout></PageLayout>
       <Footer />
     </>
   );

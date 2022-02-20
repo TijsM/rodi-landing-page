@@ -24,6 +24,7 @@ export const A = styled.button`
   border: none;
   cursor: pointer;
   margin: 48px 0px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,8 +34,11 @@ export const A = styled.button`
 
 export const ButtonText = styled.p`
   color: ${({ theme }) => theme.dark};
-  font-size: 32px;
+  font-size: 24px;
   padding-left: 12px;
+  @media only screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 export const ImageContainer = styled.div``;
