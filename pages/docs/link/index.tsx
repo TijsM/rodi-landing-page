@@ -1,29 +1,25 @@
+import { CodeBlock } from "react-code-blocks";
+import NextLink from "next/link";
+
 import Footer from "../../../components/Footer";
 import Header from "../../../components/blog/Header";
 import SeoHeaders from "../../../components/SeoHeaders";
-import {
-  H2,
-  H3,
-  StyledImage,
-  ImageContainer,
-  H4,
-} from "../../../styles/componentStyles/Blog/BlogPage";
+import { H2, H3 } from "../../../styles/componentStyles/Blog/BlogPage";
 import { PageLayout } from "../../../styles/Layouts";
-import { H1 } from "../../../styles/Titles";
-import { a11yLight, CodeBlock } from "react-code-blocks";
-import { Paragraph } from "../../../components/docs/Link";
+import { Paragraph, A } from "../../../components/docs/Link";
 
 export default function Link() {
   return (
     <>
-      <SeoHeaders description={""} />
+      <SeoHeaders
+        description={"Documentation on how to open coordinates in the Rodi app"}
+      />
       <Header
-        title={"Open a coordinate in "}
+        title={"Open a coordinate in Rodi."}
         intro={
           "Rodi can open a coordinate from any website or other app. Rodi will first show this coordinate on the map and give the user the option to navigate to this point."
         }
       />
-
       <PageLayout>
         <H2>Link with fallback</H2>
         <Paragraph>
@@ -36,12 +32,12 @@ export default function Link() {
           text="https://rodi.app/open?lat=<LATITUDE>&lon=<LONGITUDE>"
           showLineNumbers={false}
         />
-        <H2>Link without fallback</H2>
+        <H2>Link without fallback*</H2>
         <Paragraph isUnderlined>
-          Not recommended, use with caution. If the user does not have Rodi
-          installed, nothing will happen.
+          Will open Rodi if it's installed. This method is not recommended, you
+          should use it with caution. If the user does not have Rodi installed,
+          nothing will happen.
         </Paragraph>
-        <Paragraph>Will open Rodi if it's installed</Paragraph>
         <Paragraph>
           Open this link like you would open any other link.
         </Paragraph>
@@ -50,6 +46,17 @@ export default function Link() {
           text="rodi://openCoordinate/?lat=<LATITUDE>&lon=<LONGITUDE>"
           showLineNumbers={false}
         />
+        <H2>Example</H2>
+        <Paragraph>
+          Example project using React-native to show how to implement
+          deeplinking to Rodi
+        </Paragraph>
+        <NextLink
+          href="https://github.com/TijsM/rodi-deeplinking-example"
+          passHref={true}
+        >
+          <A target="_blank">Open project in Github</A>
+        </NextLink>
       </PageLayout>
       <Footer />
     </>
