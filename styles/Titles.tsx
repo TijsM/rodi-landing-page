@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-export const H1 = styled.h1`
+export const H1 = styled.h1<{ dark?: boolean }>`
   font-size: 48px;
   font-weight: 700;
-  color: white;
+  color: ${({ theme, dark }) => (dark ? theme.dark : theme.white)};
   line-height: 125%;
-
-  /* mix-blend-mode: difference; */
 
   @media only screen and (min-width: 768px) {
     font-size: 96px;
