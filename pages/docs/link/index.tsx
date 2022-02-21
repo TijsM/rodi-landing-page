@@ -1,14 +1,19 @@
 import { CodeBlock } from "react-code-blocks";
 import NextLink from "next/link";
 
+import { useLogPageView } from "../../../utils/analytics";
+
 import Footer from "../../../components/Footer";
 import Header from "../../../components/blog/Header";
 import SeoHeaders from "../../../components/SeoHeaders";
-import { H2, H3 } from "../../../styles/componentStyles/Blog/BlogPage";
-import { PageLayout } from "../../../styles/Layouts";
 import { Paragraph, A } from "../../../components/docs/Link";
 
+import { PageLayout } from "../../../styles/Layouts";
+import { H2, H3 } from "../../../styles/componentStyles/Blog/BlogPage";
+
 export default function Link() {
+  useLogPageView();
+
   return (
     <>
       <SeoHeaders
