@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+
 import {
   Content,
   Title,
@@ -11,6 +12,7 @@ import {
   DonwloadArticle,
   DownloadButtonContainer,
 } from "../styles/componentStyles/OpenDeepLink";
+
 import { PageLayout } from "../styles/Layouts";
 import StoreButtons from "./StoreButtons";
 
