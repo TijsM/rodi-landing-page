@@ -26,4 +26,5 @@ export const RichText = styled.span<{
   text-decoration: ${({ isUnderlined }) =>
     isUnderlined ? "underline" : "initial"};
   font-style: ${({ isItalic }) => (isItalic ? "italic" : "initial")};
+  line-height: 1.4em;
 `;
