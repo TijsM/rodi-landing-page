@@ -17,6 +17,12 @@ export const A = styled.a`
   color: ${({ theme }) => theme.dark};
 `;
 
+export type RichTextProps = {
+  isBold: boolean;
+  isUnderlined: boolean;
+  isItalic: boolean;
+};
+
 export const RichText = styled.span<{
   isBold: boolean;
   isUnderlined: boolean;

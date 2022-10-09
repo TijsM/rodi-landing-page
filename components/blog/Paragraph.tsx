@@ -1,5 +1,6 @@
 import React from "react";
 import { P, A, RichText } from "../../styles/componentStyles/Blog/Paragraph";
+import Link from "./Link";
 
 export default function Paragraph({ block }) {
   return (
@@ -13,9 +14,11 @@ export default function Paragraph({ block }) {
 
         if (text.href) {
           return (
-            <A key={text.text.content} href={text.href}>
-              <RichText {...richProps}> {text.text.content}</RichText>
-            </A>
+            <Link
+              text={text.text.content}
+              href={text.href}
+              richProps={richProps}
+            />
           );
         }
         return (
