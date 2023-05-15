@@ -33,10 +33,15 @@ export const H4 = styled(DefaultH3)`
   }
 `;
 
-export const StyledImage = styled(Image)``;
+export const StyledImage = styled.img`
+  max-width: 100%;
+  margin: auto;
+`;
 
 export const ImageContainer = styled.div`
   height: 500px;
   margin: 48px auto;
   position: relative;
+  display: flex;
+  justify-content: center;
 `;
