@@ -36,11 +36,10 @@ export default function Blog({ blog }) {
         case "bulleted_list_item":
           return <ListItem block={block} key={block.id} />;
         case "image":
-          console.log(block.image.file.url)
           return (
             <ImageContainer key={block.id}>
               <StyledImage
-                src={block.image.file.url}
+                src={`${block.image.file.url}`}
                 layout="fill"
                 objectFit="contain"
               />
