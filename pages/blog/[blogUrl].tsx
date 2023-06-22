@@ -70,23 +70,24 @@ export default function Blog({ blog }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const blog = await getPage(params.blogUrl);
 
   return {
     props: { blog },
-    revalidate: 10,
   };
 }
 
-export async function getStaticPaths() {
-  const pages = await getBlog();
+//isr disabled because images only work for 1hr, caching this will cause issues
 
-  const paths = pages.map((blog) => {
-    return {
-      params: { blogUrl: blog.properties.Url.rich_text[0].plain_text },
-    };
-  });
+// export async function getStaticPaths() {
+//   const pages = await getBlog();
 
-  return { paths, fallback: "blocking" };
-}
+//   const paths = pages.map((blog) => {
+//     return {
+//       params: { blogUrl: blog.properties.Url.rich_text[0].plain_text },
+//     };
+//   });
+
+//   return { paths, fallback: "blocking" };
+// }
