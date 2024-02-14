@@ -39,7 +39,7 @@ export default function Home() {
         <Screen />
         <Download />
         <Journey />
-        <Stories />
+        {/* <Stories /> */}
         <Footer />
       </ScreenWidth>
     </>
