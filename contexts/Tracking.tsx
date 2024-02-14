@@ -7,6 +7,7 @@ import ReactGA from "react-ga";
 const TrackingID = "G-R1Y7LB88NT";
 const TrackingContext = React.createContext(null);
 
+// todo update to ga4
 function TrackingProvider(props) {
   // if the userId is passed in, we'll need to keep track of any
   // login/logout changes
