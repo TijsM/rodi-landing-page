@@ -20,7 +20,7 @@ export default function Blog(props) {
       />
       <Header title={"Learn how and why Rodi is built."} />
       <BlogPosts pages={props.pages} />
-      <Stories wrapContent={true} />
+      {/* <Stories wrapContent={true} /> */}
       <Footer />
     </>
   );
