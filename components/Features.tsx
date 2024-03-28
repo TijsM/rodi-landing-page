@@ -37,7 +37,7 @@ type Feature = {
 export default function Features({ startTime }: Props) {
   const features: Feature[] = [
     {
-      title: "Course navigation",
+      title: "Never mis a turn on your route",
       description:
         "Do you have a favorite route? Or don't have a clue where to go? Find a route online and upload it to --link--. Rodi will guide you with directions so you won't miss a turn.",
       link: { url: "rodi.app/upload", text: "test" },
@@ -48,7 +48,7 @@ export default function Features({ startTime }: Props) {
       },
     },
     {
-      title: "POI search",
+      title: "Find your places",
       description:
         "You haven’t planned a route? No problem, Rodi has your back. Search for any location and Rodi will create a bike-friendly route for you.",
       illustration: {
@@ -58,7 +58,7 @@ export default function Features({ startTime }: Props) {
       },
     },
     {
-      title: "Track your performance",
+      title: "Get insights in your activities",
       description:
         "Rodi tracks your ride on the go. We use the gps sensor of your phone to display the valuable insights of your trip.",
       illustration: {
