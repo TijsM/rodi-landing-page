@@ -29,3 +29,10 @@ export const A = styled.a`
   font-size: 18px;
   margin: 8px 0px;
 `;
+
+export const BuildBy = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+`;

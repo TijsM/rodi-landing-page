@@ -8,6 +8,7 @@ import {
   LinkGroup,
   Links,
   A,
+  BuildBy,
 } from "../styles/componentStyles/Footer";
 import { PageLayout } from "../styles/Layouts";
 import StoreButtons from "./StoreButtons";
@@ -51,6 +52,11 @@ export default function Footer() {
             </LinkGroup>
           </Links>
         </HtmlFooter>
+        <BuildBy>
+          <Link href="https://rodi-digital.com/" passHref={true}>
+            <A target="_blank">Build by Rodi Digital</A>
+          </Link>
+        </BuildBy>
       </PageLayout>
     </>
   );
